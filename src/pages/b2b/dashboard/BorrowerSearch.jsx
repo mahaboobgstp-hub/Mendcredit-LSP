@@ -27,13 +27,14 @@ export default function BorrowerSearch() {
             <th>Mobile</th>
             <th>Credit Score</th>
             <th>Risk</th>
+            <th>Risk Score</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Rahul Sharma</td>
-            <td>ABCDE1234F</td>
+            <td>ABCDE1235F</td>
             <td>98XXXX321</td>
             <td>721</td>
             <td className="risk-medium">Medium</td>
