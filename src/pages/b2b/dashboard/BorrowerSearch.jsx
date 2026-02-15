@@ -95,14 +95,15 @@ export default function BorrowerSearch() {
         Search borrowers using PAN, mobile number, or application ID.
       </p>
 
-      <div className="b2b-search-card">
-        <input placeholder="PAN (e.g. ABCDE1235F)" />
-        <input placeholder="Mobile Number" />
-        <input placeholder="Application ID (optional)" />
-        <button className="b2b-primary-btn">
-          Search Borrower
-        </button>
-      </div>
+  <div className="b2b-search-card-row">
+    <input placeholder="PAN (e.g. ABCDE1235F)" />
+    <input placeholder="Mobile" />
+    <input placeholder="Application ID (optional)" />
+    <button className="b2b-search-btn">
+    Search
+   </button>
+</div>
+
 
       <table className="b2b-table">
         <thead>
