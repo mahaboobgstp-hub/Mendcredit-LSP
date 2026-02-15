@@ -420,3 +420,31 @@
 .b2b-table tr:nth-child(even) td {
   background: #fafafa;
 }
+.b2b-search-card-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.b2b-search-card-row input {
+  width: 200px;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+.b2b-search-btn {
+  padding: 8px 18px;
+  font-size: 14px;
+  background: #2cb34a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.b2b-primary-btn {
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+}
