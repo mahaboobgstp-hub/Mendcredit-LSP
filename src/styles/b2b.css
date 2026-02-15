@@ -395,3 +395,28 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.b2b-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.b2b-table th,
+.b2b-table td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.b2b-table th {
+  font-weight: 600;
+  background: #f5f6f8;
+}
+
+.b2b-table td {
+  background: #ffffff;
+}
+
+.b2b-table tr:nth-child(even) td {
+  background: #fafafa;
+}
