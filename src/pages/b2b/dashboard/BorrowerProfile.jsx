@@ -1,6 +1,6 @@
-import { useRouter } from "next/router";
+import { useParams } from "react-router-dom";
 import B2BLayout from "../../../../layouts/B2BLayout";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import "../../../styles/b2b.css";
 
 export default function BorrowerProfile() {
