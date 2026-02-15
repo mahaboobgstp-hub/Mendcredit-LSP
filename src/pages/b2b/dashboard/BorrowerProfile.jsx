@@ -63,7 +63,7 @@ export default function BorrowerProfile() {
 
         <div style={{ display: "flex", gap: "15px", flexWrap: "wrap", marginTop: "15px" }}>
           <button className="b2b-secondary-btn" onClick={pullBankStatement}>
-            Pull Bank Statement
+            Verify Bank Statement
           </button>
 
           <button className="b2b-secondary-btn" onClick={verifyIncome}>
