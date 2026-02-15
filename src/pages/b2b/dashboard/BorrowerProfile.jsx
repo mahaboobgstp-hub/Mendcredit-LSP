@@ -1,20 +1,16 @@
 import { useParams } from "react-router-dom";
-import B2BLayout from "../../../../layouts/B2BLayout";
-import { Link } from "react-router-dom";
+import B2BLayout from "../../../layouts/B2BLayout";
 import "../../../styles/b2b.css";
 
 export default function BorrowerProfile() {
-  const router = useRouter();
-  const { id } = router.query;
+  const { id } = useParams();
 
   const pullBankStatement = () => {
     alert("Bank statement pull initiated for " + id);
-    // Later integrate bank API
   };
 
   const verifyIncome = () => {
     alert("Income verification initiated for " + id);
-    // Later integrate GST / ITR / PF APIs
   };
 
   return (
@@ -48,31 +44,24 @@ export default function BorrowerProfile() {
         </div>
       </div>
 
-      {/* ACTION SECTION */}
-      <div className="b2b-analysis-section">
+      <div style={{ marginTop: "40px" }}>
         <h3>Analysis Modules</h3>
 
-        <div className="b2b-analysis-buttons">
-          <Link href={`/b2b/dashboard/borrowers/${id}/credit-report`}>
-            <button className="b2b-primary-btn">
-              Detailed Credit Report
-            </button>
-          </Link>
+        <div style={{ display: "flex", gap: "15px", flexWrap: "wrap", marginTop: "15px" }}>
+          <button className="b2b-primary-btn">
+            Detailed Credit Report
+          </button>
 
-          <Link href={`/b2b/dashboard/borrowers/${id}/bank-analysis`}>
-            <button className="b2b-primary-btn">
-              Detailed Bank Statement
-            </button>
-          </Link>
+          <button className="b2b-primary-btn">
+            Detailed Bank Statement
+          </button>
 
-          <Link href={`/b2b/dashboard/borrowers/${id}/income-verification`}>
-            <button className="b2b-primary-btn">
-              Detailed Income Details
-            </button>
-          </Link>
+          <button className="b2b-primary-btn">
+            Detailed Income Details
+          </button>
         </div>
 
-        <div className="b2b-analysis-buttons" style={{ marginTop: "15px" }}>
+        <div style={{ display: "flex", gap: "15px", flexWrap: "wrap", marginTop: "15px" }}>
           <button className="b2b-secondary-btn" onClick={pullBankStatement}>
             Pull Bank Statement
           </button>
