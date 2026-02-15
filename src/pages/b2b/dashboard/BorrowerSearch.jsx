@@ -11,6 +11,7 @@ export default function BorrowerSearch() {
     applicationId: "",
     bureau: "CIBIL",
     name: "",
+    pan: "",
     mobile: "",
     email: "",
     gender: "",
@@ -68,7 +69,7 @@ export default function BorrowerSearch() {
         id: borrowers.length + 1,
         applicationId: formData.applicationId,
         name: formData.name,
-        pan: "N/A",
+        pan: formData.pan,
         mobile: formData.mobile,
         bureau: formData.bureau,
         score: "Pending",
@@ -160,6 +161,15 @@ export default function BorrowerSearch() {
                 setFormData({ ...formData, name: e.target.value })
               }
             />
+
+            <input
+              placeholder="PAN (e.g. ABCDE1234F)"
+              value={formData.pan}
+              onChange={(e) =>
+                setFormData({ ...formData, pan: e.target.value.toUpperCase() })
+              }
+              />
+
 
             <input
               placeholder="Mobile"
