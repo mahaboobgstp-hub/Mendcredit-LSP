@@ -26,6 +26,7 @@ export default function BorrowerSearch() {
       name: "Rahul Sharma",
       pan: "ABCDE1235F",
       mobile: "98XXXX321",
+      bureau: "CIBIL",
       score: 721,
       risk: "Medium"
     }
@@ -69,6 +70,7 @@ export default function BorrowerSearch() {
         name: formData.name,
         pan: "N/A",
         mobile: formData.mobile,
+        bureau: formData.bureau,
         score: "Pending",
         risk: "Pending"
       }
@@ -108,6 +110,7 @@ export default function BorrowerSearch() {
             <th>Name</th>
             <th>PAN</th>
             <th>Mobile</th>
+            <th>CIC</th>
             <th>Credit Score</th>
             <th>Risk</th>
             <th>Action</th>
@@ -120,6 +123,7 @@ export default function BorrowerSearch() {
               <td>{b.name}</td>
               <td>{b.pan}</td>
               <td>{b.mobile}</td>
+              <td>{b.bureau}</td>
               <td>{b.score}</td>
               <td>{b.risk}</td>
               <td>
