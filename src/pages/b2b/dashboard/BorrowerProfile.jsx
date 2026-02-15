@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate  } from "react-router-dom";
 import B2BLayout from "../../../layouts/B2BLayout";
 import "../../../styles/b2b.css";
 
 export default function BorrowerProfile() {
   const { id } = useParams();
+  const navigate = useNavigate();  
 
   const verifyBank = () => {
     alert("Bank statement verification initiated for " + id);
@@ -22,18 +23,28 @@ export default function BorrowerProfile() {
 
       {/* ACTION BAR - MOVED ABOVE CARDS */}
       <div className="b2b-action-bar">
-        <button className="b2b-primary-btn">
-          Detailed Credit Report
-        </button>
+  <button
+    className="b2b-primary-btn"
+    onClick={() => navigate(`/b2b/dashboard/borrowers/${id}/credit-report`)}
+  >
+    Detailed Credit Report
+  </button>
 
-        <button className="b2b-primary-btn" onClick={verifyBank}>
-          Verify Bank Statement
-        </button>
+  <button
+    className="b2b-primary-btn"
+    onClick={() => navigate(`/b2b/dashboard/borrowers/${id}/bank-analysis`)}
+  >
+    Verify Bank Statement
+  </button>
 
-        <button className="b2b-primary-btn" onClick={verifyIncome}>
-          Verify Income (GST / ITR / PF)
-        </button>
-      </div>
+  <button
+    className="b2b-primary-btn"
+    onClick={() => navigate(`/b2b/dashboard/borrowers/${id}/income-verification`)}
+  >
+    Verify Income (GST / ITR / PF)
+  </button>
+</div>
+
 
       {/* SUMMARY CARDS */}
       <div className="b2b-profile-grid">
