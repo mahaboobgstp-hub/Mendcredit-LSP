@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import B2BLayout from "../../../layouts/B2BLayout";
 import "../../../styles/b2b.css";
-import Link from "next/link";
 
 
 export default function BorrowerSearch() {
@@ -131,9 +130,9 @@ export default function BorrowerSearch() {
               <td>{b.score}</td>
               <td>{b.risk}</td>
               <td>
-                <Link href={`/b2b/dashboard/borrowers/${b.applicationId}`}>
-                View Profile
-               </Link>
+               <a href={`/b2b/dashboard/borrowers/${b.applicationId}`}>
+               View Profile
+               </a>
 
               </td>
             </tr>
