@@ -22,6 +22,7 @@ export default function BorrowerSearch() {
   const [borrowers, setBorrowers] = useState([
     {
       id: 1,
+      applicationId: "APP001",
       name: "Rahul Sharma",
       pan: "ABCDE1235F",
       mobile: "98XXXX321",
@@ -64,6 +65,7 @@ export default function BorrowerSearch() {
       ...borrowers,
       {
         id: borrowers.length + 1,
+        applicationId: formData.applicationId,
         name: formData.name,
         pan: "N/A",
         mobile: formData.mobile,
@@ -102,6 +104,7 @@ export default function BorrowerSearch() {
       <table className="b2b-table">
         <thead>
           <tr>
+            <th>Application ID</th>
             <th>Name</th>
             <th>PAN</th>
             <th>Mobile</th>
@@ -113,6 +116,7 @@ export default function BorrowerSearch() {
         <tbody>
           {borrowers.map((b) => (
             <tr key={b.id}>
+              <td>{b.applicationId}</td>
               <td>{b.name}</td>
               <td>{b.pan}</td>
               <td>{b.mobile}</td>
