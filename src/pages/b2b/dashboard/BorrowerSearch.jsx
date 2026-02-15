@@ -10,7 +10,7 @@ export default function BorrowerSearch() {
       </p>
 
       <div className="b2b-search-card">
-        <input placeholder="PAN (e.g. ABCDE1234F)" />
+        <input placeholder="PAN (e.g. ABCDE1235F)" />
         <input placeholder="Mobile Number" />
         <input placeholder="Application ID (optional)" />
 
