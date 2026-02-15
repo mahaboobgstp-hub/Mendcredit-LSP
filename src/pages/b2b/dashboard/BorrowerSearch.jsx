@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import B2BLayout from "../../../layouts/B2BLayout";
 import "../../../styles/b2b.css";
+import Link from "next/link";
+
 
 export default function BorrowerSearch() {
   const [showModal, setShowModal] = useState(false);
@@ -129,7 +131,10 @@ export default function BorrowerSearch() {
               <td>{b.score}</td>
               <td>{b.risk}</td>
               <td>
-                <a href="#">View Profile</a>
+                <Link href={`/b2b/dashboard/borrowers/${b.applicationId}`}>
+                View Profile
+               </Link>
+
               </td>
             </tr>
           ))}
