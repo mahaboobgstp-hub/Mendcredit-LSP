@@ -5,8 +5,8 @@ import "../../../styles/b2b.css";
 export default function BorrowerProfile() {
   const { id } = useParams();
 
-  const pullBankStatement = () => {
-    alert("Bank statement pull initiated for " + id);
+  const verifyBank = () => {
+    alert("Bank statement verification initiated for " + id);
   };
 
   const verifyIncome = () => {
@@ -20,55 +20,43 @@ export default function BorrowerProfile() {
         Consolidated borrower overview for underwriting.
       </p>
 
+      {/* ACTION BAR - MOVED ABOVE CARDS */}
+      <div className="b2b-action-bar">
+        <button className="b2b-primary-btn">
+          Detailed Credit Report
+        </button>
+
+        <button className="b2b-primary-btn" onClick={verifyBank}>
+          Verify Bank Statement
+        </button>
+
+        <button className="b2b-primary-btn" onClick={verifyIncome}>
+          Verify Income (GST / ITR / PF)
+        </button>
+      </div>
+
+      {/* SUMMARY CARDS */}
       <div className="b2b-profile-grid">
         <div className="b2b-card">
           <h3>Basic Details</h3>
-          <p>Application ID: {id}</p>
-          <p>Name: Rahul Sharma</p>
-          <p>PAN: ABCDE1234F</p>
-          <p>Mobile: 98XXXX321</p>
+          <p><strong>Application ID:</strong> {id}</p>
+          <p><strong>Name:</strong> Rahul Sharma</p>
+          <p><strong>PAN:</strong> ABCDE1234F</p>
+          <p><strong>Mobile:</strong> 98XXXX321</p>
         </div>
 
         <div className="b2b-card">
           <h3>Credit Snapshot</h3>
-          <p>Credit Score: 721</p>
-          <p>Active Loans: 3</p>
-          <p>Negative Accounts: 1</p>
+          <p><strong>Credit Score:</strong> 721</p>
+          <p><strong>Active Loans:</strong> 3</p>
+          <p><strong>Negative Accounts:</strong> 1</p>
         </div>
 
         <div className="b2b-card">
           <h3>Risk Indicators</h3>
-          <p>Recent DPDs: Yes</p>
-          <p>High Utilization: Yes</p>
-          <p>Overall Risk: Medium</p>
-        </div>
-      </div>
-
-      <div style={{ marginTop: "40px" }}>
-        <h3>Analysis Modules</h3>
-
-        <div style={{ display: "flex", gap: "15px", flexWrap: "wrap", marginTop: "15px" }}>
-          <button className="b2b-primary-btn">
-            Detailed Credit Report
-          </button>
-
-          <button className="b2b-primary-btn">
-            Detailed Bank Statement
-          </button>
-
-          <button className="b2b-primary-btn">
-            Detailed Income Details
-          </button>
-        </div>
-
-        <div style={{ display: "flex", gap: "15px", flexWrap: "wrap", marginTop: "15px" }}>
-          <button className="b2b-secondary-btn" onClick={pullBankStatement}>
-            Verify Bank Statement
-          </button>
-
-          <button className="b2b-secondary-btn" onClick={verifyIncome}>
-            Verify Income (GST / ITR / PF)
-          </button>
+          <p><strong>Recent DPDs:</strong> Yes</p>
+          <p><strong>High Utilization:</strong> Yes</p>
+          <p><strong>Overall Risk:</strong> Medium</p>
         </div>
       </div>
 
