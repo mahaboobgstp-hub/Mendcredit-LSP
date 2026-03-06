@@ -321,28 +321,47 @@ export default function CreditReportContent() {
         <tr>
           <th>#</th>
           <th>Lender</th>
-          <th>Loan Type</th>
+          <th>Loan No</th>
+          <th>Type</th>
+          <th>Sanctioned Date</th>
           <th>Sanctioned Amount</th>
           <th>Closing Date</th>
+          <th>Status</th>
         </tr>
       </thead>
 
       <tbody>
+
         <tr>
           <td>1</td>
-          <td>SBI</td>
+          <td>CANFIN HOMES</td>
+          <td>196225000173</td>
           <td>Housing Loan</td>
-          <td>₹8,60,000</td>
-          <td>30-Apr-2024</td>
+          <td>26-09-2022</td>
+          <td>₹14,50,000</td>
+          <td>15-03-2025</td>
+          <td>Closed</td>
         </tr>
+
+        <tr>
+          <td>2</td>
+          <td>HDFC BANK</td>
+          <td>85808905</td>
+          <td>Construction Equipment Loan</td>
+          <td>04-10-2021</td>
+          <td>₹23,65,000</td>
+          <td>29-11-2022</td>
+          <td>Closed</td>
+        </tr>
+
       </tbody>
 
     </table>
 
   </div>
-)}
+)};
       
-<div>
+      <div>
         <span className="tag tag-warning">Recent DPDs</span>
         <span className="tag tag-danger">Written-Off Account</span>
         <span className="tag tag-danger">High Utilization</span>
