@@ -1,5 +1,5 @@
 import B2BLayout from "../../../layouts/B2BLayout";
-import RiskEngineContent from "./components/RiskEngineContent";
+import RiskEngineContent from "../components/RiskEngineContent";
 
 export default function RiskEngine() {
   return (
