@@ -30,44 +30,44 @@ export default function CreditReportContent() {
   return (
     <div className="b2b-module-container">
 
-      <h2>Credit Report</h2>
-      <p className="b2b-subtitle">
-        Bureau-based credit information for underwriting assessment.
-      </p>
+      {/* CREDIT REPORT HEADER */}
 
-      {/* Borrower Info */}
-      <div className="b2b-card b2b-borrower-header">
+<div className="credit-report-header">
 
-        <div>
-          <strong>{borrower.name}</strong>
-          <p>PAN: {borrower.pan} · Mobile: {borrower.mobile}</p>
-        </div>
+  {/* Borrower Info */}
+  <div className="credit-header-left">
 
-        <div className="b2b-bureau-info">
-          <p>Bureau: {borrower.bureau}</p>
-          <p>Report Date: {borrower.reportDate}</p>
-        </div>
+    <p><strong>Name:</strong> {borrower.name}</p>
+    <p><strong>PAN:</strong> {borrower.pan}</p>
+    <p><strong>Mobile:</strong> {borrower.mobile}</p>
 
-      </div>
+  </div>
 
-      {/* Credit Score Card */}
-      <div className="b2b-credit-score-card">
 
-        <div className="b2b-credit-score-main">
-          <h1>{borrower.score}</h1>
-          <p className="b2b-risk">{borrower.risk}</p>
-        </div>
+  {/* Credit Score */}
+  <div className="credit-header-score">
 
-        <div className="b2b-credit-summary">
-          <p><strong>Active Loans:</strong> {borrower.activeLoans}</p>
-          <p><strong>Negative Accounts:</strong> {borrower.negativeAccounts}</p>
-          <p><strong>Recent DPDs:</strong> {borrower.recentDPD}</p>
-        </div>
+    <h1>{borrower.score}</h1>
 
-      </div>
+  </div>
 
-      {/* Risk Tags */}
-      <div className="b2b-risk-tags">
+
+  {/* Brand + Report Info */}
+  <div className="credit-header-right">
+
+    <h2 className="brand">Mend Credit Advisory</h2>
+
+    <p className="brand-sub">
+      Explaining Every Detail. Resolving Every Issue
+    </p>
+
+    <p className="report-date">
+      Report Date: {borrower.reportDate}
+    </p>
+
+  </div>
+
+</div>
 
         <span className="tag tag-warning">Recent DPDs</span>
         <span className="tag tag-danger">Written-Off Account</span>
