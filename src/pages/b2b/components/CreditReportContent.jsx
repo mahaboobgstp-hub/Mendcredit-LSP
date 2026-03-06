@@ -37,7 +37,7 @@ export default function CreditReportContent() {
 <div className="credit-report-header">
 
   {/* Borrower Info */}
-  <div className="credit-report-header">
+ 
 
   {/* LEFT SIDE — Borrower Info */}
   <div className="credit-header-left">
@@ -682,6 +682,6 @@ Card Behaviour
       </div>
 
     </div>
-   </div>    
+       
   );
 }
