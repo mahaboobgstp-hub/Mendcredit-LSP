@@ -419,24 +419,8 @@ export default function CreditReportContent() {
 Risk Flags
 </button>
 
-<button className={riskTab === "exposure" ? "tab active" : "tab"} onClick={() => setRiskTab("exposure")}>
-Credit Exposure
-</button>
-
-<button className={riskTab === "utilization" ? "tab active" : "tab"} onClick={() => setRiskTab("utilization")}>
-Credit Utilization
-</button>
-
 <button className={riskTab === "delinquency" ? "tab active" : "tab"} onClick={() => setRiskTab("delinquency")}>
 Delinquency Metrics
-</button>
-
-<button className={riskTab === "age" ? "tab active" : "tab"} onClick={() => setRiskTab("age")}>
-Credit Age
-</button>
-
-<button className={riskTab === "mix" ? "tab active" : "tab"} onClick={() => setRiskTab("mix")}>
-Credit Mix
 </button>
 
 <button className={riskTab === "inquiry" ? "tab active" : "tab"} onClick={() => setRiskTab("inquiry")}>
@@ -498,27 +482,9 @@ Card Behaviour
 </div>
 )}
 
-      {riskTab === "exposure" && (
-<div className="risk-box">
-<h4>Credit Exposure</h4>
+      
 
-<p>Total Sanctioned Credit: ₹58,00,000</p>
-<p>Total Outstanding: ₹41,20,000</p>
-<p>Total Overdue: ₹55,614</p>
-<p>Largest Loan: ₹25,00,000</p>
-
-</div>
-)}
-
-      {riskTab === "utilization" && (
-<div className="risk-box">
-
-<p>Total Limit: ₹10,00,000</p>
-<p>Used Limit: ₹8,20,000</p>
-<p>Utilization: 82%</p>
-
-</div>
-)}
+     
 
       {riskTab === "delinquency" && (
 <div className="risk-box">
@@ -532,24 +498,7 @@ Card Behaviour
 </div>
 )}
 
-      {riskTab === "age" && (
-<div className="risk-box">
-
-<p>Oldest Credit Line: 8.4 years</p>
-<p>Average Credit Age: 3.2 years</p>
-<p>Newest Loan: 6 months</p>
-
-</div>
-)}
-      {riskTab === "mix" && (
-<div className="risk-box">
-
-<p>Secured Loans: 2</p>
-<p>Unsecured Loans: 5</p>
-<p>Credit Cards: 1</p>
-
-</div>
-)}
+      
       {riskTab === "inquiry" && (
 <div className="risk-box">
 
