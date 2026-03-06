@@ -536,3 +536,32 @@
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
+.borrower-header{
+  background:#f4f6f8;
+  padding:12px;
+  border-radius:6px;
+  margin-bottom:15px;
+}
+
+.borrower-tabs{
+  display:flex;
+  gap:15px;
+  border-bottom:1px solid #ddd;
+  margin-bottom:20px;
+}
+
+.tab-link{
+  padding:10px 15px;
+  text-decoration:none;
+  color:#333;
+  font-weight:500;
+}
+
+.tab-link.active{
+  border-bottom:3px solid #2e7d32;
+  color:#2e7d32;
+}
+
+.borrower-tab-content{
+  margin-top:20px;
+}
