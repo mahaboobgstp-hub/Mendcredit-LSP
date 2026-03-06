@@ -1,5 +1,5 @@
 import B2BLayout from "../../../layouts/B2BLayout";
-import BankAnalysisContent from "./components/BankAnalysisContent";
+import BankAnalysisContent from "../components/BankAnalysisContent";
 
 export default function BankAnalysis() {
   return (
