@@ -1,9 +1,14 @@
 import { useParams } from "react-router-dom";
 import "../../../styles/b2b.css";
+import { useState } from "react";
+
+
+
 
 export default function CreditReportContent() {
 
   const { id } = useParams();
+  const [activeTab, setActiveTab] = useState("active");
 
   const borrower = {
     name: "Rahul Sharma",
@@ -94,6 +99,206 @@ export default function CreditReportContent() {
         </div>
 
       </div>
+      {/* Credit Data Tabs */}
+
+<div className="credit-tabs">
+
+  <button
+    className={activeTab === "active" ? "tab active" : "tab"}
+    onClick={() => setActiveTab("active")}
+  >
+    Active Loans
+  </button>
+
+  <button
+    className={activeTab === "negative" ? "tab active" : "tab"}
+    onClick={() => setActiveTab("negative")}
+  >
+    Negative Loans
+  </button>
+
+  <button
+    className={activeTab === "dpd" ? "tab active" : "tab"}
+    onClick={() => setActiveTab("dpd")}
+  >
+    Payment Delays
+  </button>
+
+  <button
+    className={activeTab === "enquiries" ? "tab active" : "tab"}
+    onClick={() => setActiveTab("enquiries")}
+  >
+    Enquiries
+  </button>
+
+  <button
+    className={activeTab === "closed" ? "tab active" : "tab"}
+    onClick={() => setActiveTab("closed")}
+  >
+    Closed Loans
+  </button>
+
+</div>
+      {/* Active Loans */}
+
+{activeTab === "active" && (
+  <div>
+
+    <h3>Active Loans</h3>
+
+    <table className="b2b-table">
+
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Lender</th>
+          <th>Loan No</th>
+          <th>Type</th>
+          <th>Ownership</th>
+          <th>Sanctioned Amount</th>
+          <th>Current Balance</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Union Bank</td>
+          <td>114125140000037</td>
+          <td>Mudra Loan</td>
+          <td>Guarantor</td>
+          <td>₹10,00,000</td>
+          <td>₹9,88,706</td>
+          <td>Active</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+)}
+
+{/* Negative Loans */}
+
+{activeTab === "negative" && (
+  <div>
+
+    <h3 className="negative-title">
+      Negative Loans impacting your credit score
+    </h3>
+
+    <table className="b2b-table negative-table">
+
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Lender</th>
+          <th>Loan Type</th>
+          <th>Sanctioned Amount</th>
+          <th>Current Balance</th>
+          <th>Overdue Amount</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>VASTU HFC</td>
+          <td>Property Loan</td>
+          <td>₹15,00,000</td>
+          <td>₹14,48,562</td>
+          <td>₹23,982</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+)}
+
+{/* DPD History */}
+
+{activeTab === "dpd" && (
+  <div>
+
+    <h3>Payment Delays (Last 24 Months)</h3>
+
+    <div className="dpd-box">
+      DPD grid will appear here
+    </div>
+
+  </div>
+)}
+
+{/* Enquiries */}
+
+{activeTab === "enquiries" && (
+  <div>
+
+    <h3>Enquiries in Last 12 Months</h3>
+
+    <table className="b2b-table">
+
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Lender</th>
+          <th>Type</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>23-Oct-2025</td>
+          <td>Bandhan Bank</td>
+          <td>Personal Loan</td>
+          <td>₹10,000</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+)}
+
+{/* Closed Loans */}
+
+{activeTab === "closed" && (
+  <div>
+
+    <h3>Closed Loans</h3>
+
+    <table className="b2b-table">
+
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Lender</th>
+          <th>Loan Type</th>
+          <th>Sanctioned Amount</th>
+          <th>Closing Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>SBI</td>
+          <td>Housing Loan</td>
+          <td>₹8,60,000</td>
+          <td>30-Apr-2024</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+)}
+      
 
       {/* Disclaimer */}
       <div className="b2b-disclaimer">
