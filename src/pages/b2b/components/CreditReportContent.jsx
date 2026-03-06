@@ -607,7 +607,7 @@ export default function CreditReportContent() {
         borrower liabilities before taking final decisions.
 
       </div>
-
+</div>
     </div>
  
   );
