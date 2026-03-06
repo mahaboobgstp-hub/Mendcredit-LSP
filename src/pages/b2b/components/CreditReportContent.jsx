@@ -412,8 +412,7 @@ export default function CreditReportContent() {
     </table>
 
   </div>
-  </div>
-  </div>
+ 
 )}
       
 {/* RISK METRICS SECTION */}
