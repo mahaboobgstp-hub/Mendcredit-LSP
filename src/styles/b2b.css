@@ -1018,3 +1018,20 @@ gap:8px;
 margin-top:15px;
 margin-bottom:10px;
 }
+.risk-metrics-section{
+margin-top:40px;
+padding-top:20px;
+border-top:1px solid #e5e7eb;
+}
+.section-title{
+font-size:18px;
+font-weight:600;
+margin-bottom:15px;
+color:#1f2937;
+}
+.risk-analytics-tabs{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-bottom:15px;
+}
