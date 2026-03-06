@@ -151,7 +151,10 @@ export default function CreditReportContent() {
 
 </div>
       {/* Credit Data Tabs */}
+      
+<div className="loan-section">
 
+<h2 className="loan-section-title">Loan Accounts</h2>
 <div className="credit-tabs">
 
   <button
