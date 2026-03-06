@@ -24,7 +24,7 @@ export default function CreditReportContent() {
     totalAccounts: 7,
     secured: 2,
     unsecured: 5,
-    activeAccounts 5,
+    activeAccounts: 5,
     closed: 2
   };
 
