@@ -614,8 +614,8 @@ Card Behaviour
 <p>Late Card Payments: 3</p>
 
 </div>
-</div>  
 )}
+ </div>  
       
       {/* Disclaimer */}
       <div className="b2b-disclaimer">
