@@ -565,3 +565,268 @@
 .borrower-tab-content{
   margin-top:20px;
 }
+.b2b-module-container{
+  margin-top:20px;
+}
+
+.b2b-borrower-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.b2b-bureau-info{
+  text-align:right;
+}
+
+.b2b-credit-score-card{
+  background:#020617;
+  color:white;
+  border-radius:12px;
+  padding:30px;
+  margin-top:20px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.b2b-credit-score-main h1{
+  font-size:48px;
+}
+
+.b2b-risk{
+  color:#facc15;
+}
+
+.b2b-credit-summary p{
+  margin:5px 0;
+}
+
+.b2b-risk-tags{
+  margin-top:15px;
+}
+
+.tag{
+  padding:6px 10px;
+  border-radius:6px;
+  margin-right:10px;
+  font-size:12px;
+}
+
+.tag-warning{
+  background:#fde68a;
+}
+
+.tag-danger{
+  background:#fecaca;
+}
+
+.b2b-stat{
+  font-size:22px;
+  font-weight:600;
+}
+
+.b2b-disclaimer{
+  background:#e0f2fe;
+  padding:15px;
+  border-radius:8px;
+  margin-top:20px;
+}
+.b2b-insights-list{
+  margin-top:10px;
+  padding-left:20px;
+}
+
+.b2b-insights-list li{
+  margin-bottom:6px;
+}
+.b2b-form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:15px;
+}
+
+.b2b-input{
+  width:100%;
+  padding:8px;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+
+.b2b-textarea{
+  width:100%;
+  height:100px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+
+.b2b-primary-btn.approve{
+  background:#16a34a;
+}
+
+.b2b-primary-btn.review{
+  background:#f59e0b;
+}
+
+.b2b-primary-btn.reject{
+  background:#dc2626;
+}
+/* INCOME VERIFICATION SOURCE CARDS */
+
+.b2b-income-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-top:20px;
+}
+
+.b2b-income-card{
+  background:#ffffff;
+  border-radius:8px;
+  padding:18px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
+
+.b2b-income-card h4{
+  margin-bottom:8px;
+  font-size:15px;
+}
+
+.b2b-income-card p{
+  font-size:13px;
+  color:#555;
+}
+
+/* STATUS LABELS */
+
+.status-connected{
+  color:#16a34a;
+  font-weight:600;
+}
+
+.status-uploaded{
+  color:#2563eb;
+  font-weight:600;
+}
+
+.status-na{
+  color:#9ca3af;
+}
+
+/* INCOME SUMMARY */
+
+.b2b-income-summary{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-top:20px;
+}
+
+.b2b-income-stat{
+  background:#f9fafb;
+  padding:20px;
+  border-radius:8px;
+  text-align:center;
+}
+
+.b2b-income-stat h4{
+  font-size:14px;
+  color:#666;
+}
+
+.b2b-income-stat p{
+  font-size:22px;
+  font-weight:600;
+  margin-top:5px;
+}
+
+/* INCOME INSIGHT BOX */
+
+.b2b-income-insight{
+  background:#e6f4f1;
+  border-left:4px solid #14b8a6;
+  padding:15px;
+  margin-top:20px;
+  border-radius:6px;
+  font-size:14px;
+}
+/* INCOME VERIFICATION SOURCE CARDS */
+
+.b2b-income-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-top:20px;
+}
+
+.b2b-income-card{
+  background:#ffffff;
+  border-radius:8px;
+  padding:18px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
+
+.b2b-income-card h4{
+  margin-bottom:8px;
+  font-size:15px;
+}
+
+.b2b-income-card p{
+  font-size:13px;
+  color:#555;
+}
+
+/* STATUS LABELS */
+
+.status-connected{
+  color:#16a34a;
+  font-weight:600;
+}
+
+.status-uploaded{
+  color:#2563eb;
+  font-weight:600;
+}
+
+.status-na{
+  color:#9ca3af;
+}
+
+/* INCOME SUMMARY */
+
+.b2b-income-summary{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-top:20px;
+}
+
+.b2b-income-stat{
+  background:#f9fafb;
+  padding:20px;
+  border-radius:8px;
+  text-align:center;
+}
+
+.b2b-income-stat h4{
+  font-size:14px;
+  color:#666;
+}
+
+.b2b-income-stat p{
+  font-size:22px;
+  font-weight:600;
+  margin-top:5px;
+}
+
+/* INCOME INSIGHT BOX */
+
+.b2b-income-insight{
+  background:#e6f4f1;
+  border-left:4px solid #14b8a6;
+  padding:15px;
+  margin-top:20px;
+  border-radius:6px;
+  font-size:14px;
+}
