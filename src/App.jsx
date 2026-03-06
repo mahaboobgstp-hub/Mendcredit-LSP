@@ -51,7 +51,7 @@ function App() {
         <Route path="/b2b/dashboard/borrowers/:id/credit-report" element={<CreditReport />} />
         <Route path="/b2b/dashboard/borrowers/:id/bank-analysis" element={<BankAnalysis />} />
         <Route path="/b2b/dashboard/risk" element={<RiskEngine />} />
-        <Route path="/b2b/dashboard/borrowers/:id/income" element={<IncomeVerification />} />
+        <Route path="/b2b/dashboard/borrowers/:id/income-verification" element={<IncomeVerification />} />
         <Route path="/b2b/dashboard/decision" element={<CreditDecision />} />
         <Route path="/lsp/apply" element={<Step1KYC />} />
         <Route path="/lsp/apply/credit-check" element={<Step2CreditCheck />} />
