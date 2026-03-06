@@ -47,7 +47,7 @@ function App() {
         <Route path="/dashboard/credit-mix" element={<CreditMix />} />
         <Route path="/b2b/dashboard" element={<B2BOverview />} />
         <Route path="/b2b/dashboard/borrowers" element={<BorrowerSearch />} />
-        <Route path="/b2b/dashboard/borrowers/:id" element={<BorrowerProfile />} />
+        <Route path="/b2b/dashboard/borrowers/:id/*" element={<BorrowerProfile />} />
         <Route path="/b2b/dashboard/borrowers/:id/credit-report" element={<CreditReport />} />
         <Route path="/b2b/dashboard/borrowers/:id/bank-analysis" element={<BankAnalysis />} />
         <Route path="/b2b/dashboard/risk" element={<RiskEngine />} />
