@@ -415,166 +415,140 @@ export default function CreditReportContent() {
 
 {/* RISK METRICS */}
 
+{/* RISK METRICS */}
+
 <div className="risk-metrics-section">
 
 <h3 className="section-title">Risk Metrics</h3>
 
+<div className="risk-metrics-grid">
+
 {/* Payment Behaviour */}
 
-<div className="risk-category">
-
+<div className="risk-group-card">
 <h4>Payment Behaviour</h4>
 
-<div className="risk-card-grid">
-
-<div className="risk-card">
-<p className="risk-title">Max DPD</p>
-<p className="risk-value">81 days</p>
-</div>
-
-<div className="risk-card">
-<p className="risk-title">30+ DPD</p>
-<p className="risk-value">4</p>
-</div>
-
-<div className="risk-card">
-<p className="risk-title">60+ DPD</p>
-<p className="risk-value">2</p>
-</div>
-
-<div className="risk-card">
-<p className="risk-title">90+ DPD</p>
-<p className="risk-value">0</p>
-</div>
-
-<div className="risk-card">
-<p className="risk-title">Recent DPD (6M)</p>
-<p className="risk-value">Yes</p>
-</div>
-
-</div>
+<p>Max DPD: <strong>81 days</strong></p>
+<p>30+ DPD: <strong>4</strong></p>
+<p>60+ DPD: <strong>2</strong></p>
+<p>90+ DPD: <strong>0</strong></p>
+<p>Recent DPD (6M): <strong>Yes</strong></p>
 
 </div>
 
 
 {/* Inquiry Behaviour */}
 
-<div className="risk-category">
-
+<div className="risk-group-card">
 <h4>Inquiry Behaviour</h4>
 
-<div className="risk-card-grid">
-
-<div className="risk-card">
-<p className="risk-title">Enquiries (3M)</p>
-<p className="risk-value">2</p>
-</div>
-
-<div className="risk-card">
-<p className="risk-title">Enquiries (6M)</p>
-<p className="risk-value">4</p>
-</div>
-
-<div className="risk-card">
-<p className="risk-title">Enquiries (12M)</p>
-<p className="risk-value">7</p>
-</div>
-
-</div>
+<p>Enquiries (3M): <strong>2</strong></p>
+<p>Enquiries (6M): <strong>4</strong></p>
+<p>Enquiries (12M): <strong>7</strong></p>
 
 </div>
 
 
-{/* Credit Exposure */}
+{/* Exposure Risk */}
 
-<div className="risk-category">
-
+<div className="risk-group-card">
 <h4>Exposure Risk</h4>
 
-<div className="risk-card-grid">
-
-<div className="risk-card">
-<p className="risk-title">Total Outstanding</p>
-<p className="risk-value">₹41,20,000</p>
-</div>
-
-<div className="risk-card">
-<p className="risk-title">Largest Loan</p>
-<p className="risk-value">₹25,00,000</p>
-</div>
-
-<div className="risk-card">
-<p className="risk-title">Unsecured Ratio</p>
-<p className="risk-value">43%</p>
-</div>
-
-<div className="risk-card">
-<p className="risk-title">EMI Burden</p>
-<p className="risk-value">₹42,500</p>
-</div>
-
-</div>
+<p>Total Outstanding: <strong>₹41,20,000</strong></p>
+<p>Largest Loan: <strong>₹25,00,000</strong></p>
+<p>Unsecured Ratio: <strong>43%</strong></p>
+<p>EMI Burden: <strong>₹42,500</strong></p>
 
 </div>
 
 
 {/* Credit Behaviour */}
 
-<div className="risk-category">
-
+<div className="risk-group-card">
 <h4>Credit Behaviour</h4>
 
-<div className="risk-card-grid">
-
-<div className="risk-card">
-<p className="risk-title">Credit Age</p>
-<p className="risk-value">3.2 yrs</p>
-</div>
-
-<div className="risk-card">
-<p className="risk-title">Credit Utilization</p>
-<p className="risk-value">82%</p>
-</div>
-
-<div className="risk-card">
-<p className="risk-title">Credit Cards</p>
-<p className="risk-value">1</p>
-</div>
-
-</div>
+<p>Credit Age: <strong>3.2 yrs</strong></p>
+<p>Credit Utilization: <strong>82%</strong></p>
+<p>Credit Cards: <strong>1</strong></p>
 
 </div>
 
 
 {/* Negative Signals */}
 
-<div className="risk-category">
-
+<div className="risk-group-card risk-danger">
 <h4>Negative Signals</h4>
 
-<div className="risk-card-grid">
-
-<div className="risk-card risk-danger">
-<p className="risk-title">Written Off</p>
-<p className="risk-value">1</p>
-</div>
-
-<div className="risk-card risk-warning">
-<p className="risk-title">Overdue Accounts</p>
-<p className="risk-value">2</p>
-</div>
-
-<div className="risk-card">
-<p className="risk-title">Settled Accounts</p>
-<p className="risk-value">0</p>
-</div>
+<p>Written Off: <strong>1</strong></p>
+<p>Overdue Accounts: <strong>2</strong></p>
+<p>Settled Accounts: <strong>0</strong></p>
 
 </div>
 
+
+{/* Credit Trend */}
+
+<div className="risk-group-card">
+<h4>Credit Trend</h4>
+
+<p>Outstanding 24M Ago: <strong>₹28,00,000</strong></p>
+<p>Current Outstanding: <strong>₹41,20,000</strong></p>
+<p>Debt Trend: <strong>Increasing</strong></p>
+
+</div>
+
+
+{/* Credit Concentration */}
+
+<div className="risk-group-card">
+<h4>Credit Concentration</h4>
+
+<p>Largest Exposure: <strong>₹25,00,000</strong></p>
+<p>Top 3 Loans Share: <strong>68%</strong></p>
+
+</div>
+
+
+{/* Loan Purpose */}
+
+<div className="risk-group-card">
+<h4>Loan Purpose</h4>
+
+<p>Housing Loans: <strong>1</strong></p>
+<p>Auto Loans: <strong>1</strong></p>
+<p>Personal Loans: <strong>3</strong></p>
+<p>Business Loans: <strong>2</strong></p>
+
+</div>
+
+
+{/* Bureau Status */}
+
+<div className="risk-group-card">
+<h4>Bureau Status</h4>
+
+<p>Standard Accounts: <strong>5</strong></p>
+<p>Substandard Accounts: <strong>1</strong></p>
+<p>Doubtful Accounts: <strong>0</strong></p>
+<p>Loss Accounts: <strong>0</strong></p>
+
+</div>
+
+
+{/* Card Behaviour */}
+
+<div className="risk-group-card">
+<h4>Card Behaviour</h4>
+
+<p>Card Limit: <strong>₹2,00,000</strong></p>
+<p>Card Utilization: <strong>78%</strong></p>
+<p>Late Payments: <strong>3</strong></p>
+
 </div>
 
 </div>
-      
+
+</div>      
       {/* Disclaimer */}
       <div className="b2b-disclaimer">
 
