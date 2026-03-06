@@ -1,5 +1,10 @@
 import { useParams, NavLink, Routes, Route } from "react-router-dom";
 import B2BLayout from "../../../layouts/B2BLayout";
+import CreditReportContent from "../components/CreditReportContent";
+import BankAnalysisContent from "../components/BankAnalysisContent";
+import IncomeVerificationContent from "../components/IncomeVerificationContent";
+import RiskEngineContent from "../components/RiskEngineContent";
+import CreditDecisionContent from "../components/CreditDecisionContent";
 import "../../../styles/b2b.css";
 
 // Import existing modules
@@ -120,11 +125,11 @@ export default function BorrowerProfile() {
 
         <Routes>
           <Route path="/" element={<Summary id={id} />} />
-          <Route path="credit" element={<CreditReport />} />
-          <Route path="bank" element={<BankAnalysis />} />
-          <Route path="income" element={<IncomeVerification />} />
-          <Route path="risk" element={<RiskEngine />} />
-          <Route path="decision" element={<CreditDecision />} />
+          <Route path="credit" element={<CreditReportContent />} />
+         <Route path="bank" element={<BankAnalysisContent />} />
+         <Route path="income" element={<IncomeVerificationContent />} />
+         <Route path="risk" element={<RiskEngineContent />} />
+         <Route path="decision" element={<CreditDecisionContent />} />
         </Routes>
 
       </div>
