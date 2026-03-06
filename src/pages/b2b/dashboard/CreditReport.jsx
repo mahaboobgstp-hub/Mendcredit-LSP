@@ -3,14 +3,14 @@ import "../../../styles/b2b.css";
 import { useParams } from "react-router-dom";
 
 
-const CreditReport = () => {
+/*const CreditReport = () => {
   const { id } = useParams();
 
   console.log(id); // APP001
 
   return <div>Credit Report for {id}</div>;
 };
-
+*/
 export default function CreditReport() {
   return (
     <B2BLayout>
