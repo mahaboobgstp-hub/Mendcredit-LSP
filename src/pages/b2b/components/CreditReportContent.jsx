@@ -608,6 +608,8 @@ export default function CreditReportContent() {
       </div>
 
     </div>
+      </div>
+    </div>
        
   );
 }
