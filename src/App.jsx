@@ -20,7 +20,7 @@ import BankAnalysis from "./pages/b2b/dashboard/BankAnalysis";
 import RiskEngine from "./pages/b2b/dashboard/RiskEngine";
 import IncomeVerification from "./pages/b2b/dashboard/IncomeVerification";
 import CreditDecision from "./pages/b2b/dashboard/CreditDecision";
-import CreditDecision from "./pages/b2b/dashboard/AuditTrail";
+import AuditTrail from "./pages/b2b/dashboard/AuditTrail";
 import Step1KYC from "./pages/lsp/apply/Step1KYC";
 import Step2CreditCheck from "./pages/lsp/apply/Step2CreditCheck";
 import Step3Employment from "./pages/lsp/apply/Step3Employment";
