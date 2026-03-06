@@ -68,7 +68,7 @@ export default function CreditReportContent() {
   </div>
 
 </div>
-
+<div>
         <span className="tag tag-warning">Recent DPDs</span>
         <span className="tag tag-danger">Written-Off Account</span>
         <span className="tag tag-danger">High Utilization</span>
