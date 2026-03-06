@@ -1,5 +1,15 @@
 import B2BLayout from "../../../layouts/B2BLayout";
 import "../../../styles/b2b.css";
+import { useParams } from "react-router-dom";
+
+
+const CreditReport = () => {
+  const { id } = useParams();
+
+  console.log(id); // APP001
+
+  return <div>Credit Report for {id}</div>;
+};
 
 export default function CreditReport() {
   return (
