@@ -1,5 +1,5 @@
 import B2BLayout from "../../../layouts/B2BLayout";
-import CreditDecisionContent from "./components/CreditDecisionContent";
+import CreditDecisionContent from "../components/CreditDecisionContent";
 
 export default function CreditDecision() {
   return (
