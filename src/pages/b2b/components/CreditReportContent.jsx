@@ -9,7 +9,7 @@ export default function CreditReportContent() {
 
   const { id } = useParams();
   const [activeTab, setActiveTab] = useState("active");
-  const [riskTab, setRiskTab] = useState("summary");
+  
 
   const borrower = {
     name: "Rahul Sharma",
@@ -413,209 +413,167 @@ export default function CreditReportContent() {
       
 {/* RISK METRICS SECTION */}
 
+{/* RISK METRICS */}
+
 <div className="risk-metrics-section">
 
 <h3 className="section-title">Risk Metrics</h3>
 
-<div className="risk-analytics-tabs">
+{/* Payment Behaviour */}
 
+<div className="risk-category">
 
+<h4>Payment Behaviour</h4>
 
-<button className={riskTab === "flags" ? "tab active" : "tab"} onClick={() => setRiskTab("flags")}>
-Risk Flags
-</button>
+<div className="risk-card-grid">
 
-<button className={riskTab === "delinquency" ? "tab active" : "tab"} onClick={() => setRiskTab("delinquency")}>
-Delinquency Metrics
-</button>
+<div className="risk-card">
+<p className="risk-title">Max DPD</p>
+<p className="risk-value">81 days</p>
+</div>
 
-<button className={riskTab === "inquiry" ? "tab active" : "tab"} onClick={() => setRiskTab("inquiry")}>
-Inquiry Behaviour
-</button>
+<div className="risk-card">
+<p className="risk-title">30+ DPD</p>
+<p className="risk-value">4</p>
+</div>
 
-<button className={riskTab === "pattern" ? "tab active" : "tab"} onClick={() => setRiskTab("pattern")}>
-Loan Pattern
-</button>
+<div className="risk-card">
+<p className="risk-title">60+ DPD</p>
+<p className="risk-value">2</p>
+</div>
 
-<button className={riskTab === "negative" ? "tab active" : "tab"} onClick={() => setRiskTab("negative")}>
-Negative Accounts
-</button>
+<div className="risk-card">
+<p className="risk-title">90+ DPD</p>
+<p className="risk-value">0</p>
+</div>
 
-<button className={riskTab === "activity" ? "tab active" : "tab"} onClick={() => setRiskTab("activity")}>
-Recent Credit Activity
-</button>
-
-<button className={riskTab === "concentration" ? "tab active" : "tab"} onClick={() => setRiskTab("concentration")}>
-Credit Concentration
-</button>
-
-<button className={riskTab === "unsecured" ? "tab active" : "tab"} onClick={() => setRiskTab("unsecured")}>
-Unsecured Exposure
-</button>
-
-<button className={riskTab === "emi" ? "tab active" : "tab"} onClick={() => setRiskTab("emi")}>
-EMI Burden
-</button>
-
-<button className={riskTab === "purpose" ? "tab active" : "tab"} onClick={() => setRiskTab("purpose")}>
-Loan Purpose
-</button>
-
-<button className={riskTab === "bureaustatus" ? "tab active" : "tab"} onClick={() => setRiskTab("bureaustatus")}>
-Bureau Status
-</button>
-
-<button className={riskTab === "trend" ? "tab active" : "tab"} onClick={() => setRiskTab("trend")}>
-Credit Trend
-</button>
-
-<button className={riskTab === "card" ? "tab active" : "tab"} onClick={() => setRiskTab("card")}>
-Card Behaviour
-</button>
+<div className="risk-card">
+<p className="risk-title">Recent DPD (6M)</p>
+<p className="risk-value">Yes</p>
+</div>
 
 </div>
 
-     
+</div>
 
-      {riskTab === "flags" && (
-<div className="risk-box">
 
-<span className="tag tag-warning">Recent DPD</span>
-<span className="tag tag-danger">Written Off Account</span>
-<span className="tag tag-danger">High Utilization</span>
-<span className="tag tag-warning">Too Many Enquiries</span>
+{/* Inquiry Behaviour */}
+
+<div className="risk-category">
+
+<h4>Inquiry Behaviour</h4>
+
+<div className="risk-card-grid">
+
+<div className="risk-card">
+<p className="risk-title">Enquiries (3M)</p>
+<p className="risk-value">2</p>
+</div>
+
+<div className="risk-card">
+<p className="risk-title">Enquiries (6M)</p>
+<p className="risk-value">4</p>
+</div>
+
+<div className="risk-card">
+<p className="risk-title">Enquiries (12M)</p>
+<p className="risk-value">7</p>
+</div>
 
 </div>
-)}
-
-      
-
-     
-
-      {riskTab === "delinquency" && (
-<div className="risk-box">
-
-<p>Max DPD: 81 days</p>
-<p>30+ DPD Count: 4</p>
-<p>60+ DPD Count: 2</p>
-<p>90+ DPD Count: 0</p>
-<p>Recent DPD (6M): Yes</p>
 
 </div>
-)}
 
-      
-      {riskTab === "inquiry" && (
-<div className="risk-box">
 
-<p>Enquiries (3M): 2</p>
-<p>Enquiries (6M): 4</p>
-<p>Enquiries (12M): 7</p>
+{/* Credit Exposure */}
+
+<div className="risk-category">
+
+<h4>Exposure Risk</h4>
+
+<div className="risk-card-grid">
+
+<div className="risk-card">
+<p className="risk-title">Total Outstanding</p>
+<p className="risk-value">₹41,20,000</p>
+</div>
+
+<div className="risk-card">
+<p className="risk-title">Largest Loan</p>
+<p className="risk-value">₹25,00,000</p>
+</div>
+
+<div className="risk-card">
+<p className="risk-title">Unsecured Ratio</p>
+<p className="risk-value">43%</p>
+</div>
+
+<div className="risk-card">
+<p className="risk-title">EMI Burden</p>
+<p className="risk-value">₹42,500</p>
+</div>
 
 </div>
-)}
-
-      {riskTab === "pattern" && (
-<div className="risk-box">
-
-<p>Repeat Personal Loans: Yes</p>
-<p>Loans last 24M: 5</p>
-<p>NBFC Exposure: High</p>
 
 </div>
-)}
 
-      {riskTab === "negative" && (
-<div className="risk-box">
 
-<p>Written Off Accounts: 1</p>
-<p>Settled Accounts: 0</p>
-<p>Overdue Accounts: 2</p>
+{/* Credit Behaviour */}
+
+<div className="risk-category">
+
+<h4>Credit Behaviour</h4>
+
+<div className="risk-card-grid">
+
+<div className="risk-card">
+<p className="risk-title">Credit Age</p>
+<p className="risk-value">3.2 yrs</p>
+</div>
+
+<div className="risk-card">
+<p className="risk-title">Credit Utilization</p>
+<p className="risk-value">82%</p>
+</div>
+
+<div className="risk-card">
+<p className="risk-title">Credit Cards</p>
+<p className="risk-value">1</p>
+</div>
 
 </div>
-)}
-
-      {riskTab === "activity" && (
-<div className="risk-box">
-
-<p>New Loans (6M): 2</p>
-<p>New Loans (12M): 3</p>
-<p>Recently Closed Loans: 1</p>
 
 </div>
-)}
 
-      {riskTab === "concentration" && (
-<div className="risk-box">
 
-<p>Largest Loan Exposure: ₹25,00,000</p>
-<p>Top 3 Loans Share: 68%</p>
+{/* Negative Signals */}
+
+<div className="risk-category">
+
+<h4>Negative Signals</h4>
+
+<div className="risk-card-grid">
+
+<div className="risk-card risk-danger">
+<p className="risk-title">Written Off</p>
+<p className="risk-value">1</p>
+</div>
+
+<div className="risk-card risk-warning">
+<p className="risk-title">Overdue Accounts</p>
+<p className="risk-value">2</p>
+</div>
+
+<div className="risk-card">
+<p className="risk-title">Settled Accounts</p>
+<p className="risk-value">0</p>
+</div>
 
 </div>
-)}
-
-      {riskTab === "unsecured" && (
-<div className="risk-box">
-
-<p>Total Outstanding: ₹41,20,000</p>
-<p>Unsecured Exposure: ₹18,00,000</p>
-<p>Unsecured Ratio: 43%</p>
 
 </div>
-)}
-
-      {riskTab === "emi" && (
-<div className="risk-box">
-
-<p>Total EMI Burden: ₹42,500</p>
-<p>Largest EMI: ₹18,000</p>
-<p>Active EMI Count: 5</p>
 
 </div>
-)}
-
-      {riskTab === "purpose" && (
-<div className="risk-box">
-
-<p>Housing Loans: 1</p>
-<p>Auto Loans: 1</p>
-<p>Personal Loans: 3</p>
-<p>Business Loans: 2</p>
-
-</div>
-)}
-
-      {riskTab === "bureaustatus" && (
-<div className="risk-box">
-
-<p>Standard Accounts: 5</p>
-<p>Substandard Accounts: 1</p>
-<p>Doubtful Accounts: 0</p>
-<p>Loss Accounts: 0</p>
-
-</div>
-)}
-
-      {riskTab === "trend" && (
-<div className="risk-box">
-
-<p>Outstanding 24M Ago: ₹28,00,000</p>
-<p>Current Outstanding: ₹41,20,000</p>
-<p>Debt Trend: Increasing</p>
-
-</div>
-)}
-
-      {riskTab === "card" && (
-<div className="risk-box">
-
-<p>Card Limit: ₹2,00,000</p>
-<p>Card Utilization: 78%</p>
-<p>Late Card Payments: 3</p>
-
-</div>
-)}
- </div>  
       
       {/* Disclaimer */}
       <div className="b2b-disclaimer">
