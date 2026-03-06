@@ -1035,3 +1035,55 @@ flex-wrap:wrap;
 gap:8px;
 margin-bottom:15px;
 }
+.risk-metrics-section{
+margin-top:40px;
+padding-top:20px;
+border-top:1px solid #e5e7eb;
+}
+
+.section-title{
+font-size:20px;
+font-weight:600;
+margin-bottom:20px;
+}
+
+.risk-category{
+margin-bottom:30px;
+}
+
+.risk-category h4{
+font-size:16px;
+margin-bottom:10px;
+}
+
+.risk-card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:12px;
+}
+
+.risk-card{
+background:#ffffff;
+padding:14px;
+border-radius:8px;
+border:1px solid #e5e7eb;
+}
+
+.risk-title{
+font-size:12px;
+color:#6b7280;
+margin-bottom:5px;
+}
+
+.risk-value{
+font-size:16px;
+font-weight:600;
+}
+
+.risk-danger{
+border-left:4px solid #ef4444;
+}
+
+.risk-warning{
+border-left:4px solid #f59e0b;
+}
