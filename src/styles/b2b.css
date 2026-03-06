@@ -908,3 +908,14 @@ margin-top:2px;
 font-size:14px;
 margin-top:6px;
 }
+.loan-details{
+display:flex;
+flex-direction:column;
+font-size:13px;
+}
+
+.wo-details{
+display:flex;
+flex-direction:column;
+font-size:13px;
+}
