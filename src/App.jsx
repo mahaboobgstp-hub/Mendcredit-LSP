@@ -49,6 +49,10 @@ function App() {
         <Route path="/b2b/dashboard/borrowers" element={<BorrowerSearch />} />
         <Route path="/b2b/dashboard/borrowers/:id/*" element={<BorrowerProfile />} />
         <Route path="/b2b/dashboard/credit-report" element={<CreditReport />} />
+        <Route path="/b2b/dashboard/bank-analysis" element={<BankAnalysis />} />
+        <Route path="/b2b/dashboard/income" element={<IncomeVerification />} />
+        <Route path="/b2b/dashboard/risk" element={<RiskEngine />} />
+        <Route path="/b2b/dashboard/decision" element={<CreditDecision />} />
         <Route path="/b2b/dashboard/borrowers/:id/credit-report" element={<CreditReport />} />
         <Route path="/b2b/dashboard/borrowers/:id/bank-analysis" element={<BankAnalysis />} />
         <Route path="/b2b/dashboard/risk" element={<RiskEngine />} />
