@@ -156,8 +156,10 @@ export default function CreditReportContent() {
           <th>Loan No</th>
           <th>Type</th>
           <th>Ownership</th>
+          <th>Sanctioned Date</th>
           <th>Sanctioned Amount</th>
           <th>Current Balance</th>
+          <th>Last Payment Date</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -169,8 +171,10 @@ export default function CreditReportContent() {
           <td>114125140000037</td>
           <td>Mudra Loan</td>
           <td>Guarantor</td>
+          <td>02-05-2019</td>
           <td>₹10,00,000</td>
           <td>₹9,88,706</td>
+          <td>09-11-2024</td>
           <td>Active</td>
         </tr>
       </tbody>
