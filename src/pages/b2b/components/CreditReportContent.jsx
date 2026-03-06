@@ -69,12 +69,7 @@ export default function CreditReportContent() {
   </div>
 
 </div>
-<div>
-        <span className="tag tag-warning">Recent DPDs</span>
-        <span className="tag tag-danger">Written-Off Account</span>
-        <span className="tag tag-danger">High Utilization</span>
 
-      </div>
 
       {/* Account Summary */}
       <div className="b2b-profile-grid">
@@ -305,7 +300,12 @@ export default function CreditReportContent() {
   </div>
 )}
       
+<div>
+        <span className="tag tag-warning">Recent DPDs</span>
+        <span className="tag tag-danger">Written-Off Account</span>
+        <span className="tag tag-danger">High Utilization</span>
 
+      </div>
       {/* Disclaimer */}
       <div className="b2b-disclaimer">
 
