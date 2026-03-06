@@ -24,6 +24,7 @@ export default function CreditReportContent() {
     totalAccounts: 7,
     secured: 2,
     unsecured: 5,
+    activeAccounts 5,
     closed: 2
   };
 
@@ -94,6 +95,11 @@ export default function CreditReportContent() {
         </div>
 
         <div className="b2b-card">
+          <h4>Active Loans</h4>
+          <p className="b2b-stat">{borrower.activeAccounts}</p>
+        </div>
+
+        <div className="b2b-card">
           <h4>Closed</h4>
           <p className="b2b-stat">{borrower.closed}</p>
         </div>
@@ -132,8 +138,8 @@ export default function CreditReportContent() {
   </button>
 
   <button
-    className={activeTab === "closed" ? "tab active" : "tab"}
-    onClick={() => setActiveTab("closed")}
+    className={activeTab === "" ? "tab active" : "tab"}
+    onClick={() => setActiveTab("")}
   >
     Closed Loans
   </button>
