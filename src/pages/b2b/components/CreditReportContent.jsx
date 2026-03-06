@@ -411,7 +411,13 @@ export default function CreditReportContent() {
   </div>
 )}
       
-     <div className="risk-analytics-tabs">
+{/* RISK METRICS SECTION */}
+
+<div className="risk-metrics-section">
+
+<h3 className="section-title">Risk Metrics</h3>
+
+<div className="risk-analytics-tabs">
 
 
 
@@ -608,6 +614,7 @@ Card Behaviour
 <p>Late Card Payments: 3</p>
 
 </div>
+</div>  
 )}
       
       {/* Disclaimer */}
