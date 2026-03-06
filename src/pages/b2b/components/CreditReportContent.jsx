@@ -37,70 +37,119 @@ export default function CreditReportContent() {
 <div className="credit-report-header">
 
   {/* Borrower Info */}
+  <div className="credit-report-header">
+
+  {/* LEFT SIDE — Borrower Info */}
   <div className="credit-header-left">
 
     <p><strong>Name:</strong> {borrower.name}</p>
     <p><strong>PAN:</strong> {borrower.pan}</p>
     <p><strong>Mobile:</strong> {borrower.mobile}</p>
+    <p><strong>Report Date:</strong> {borrower.reportDate}</p>
 
   </div>
 
 
-  {/* Credit Score */}
+  {/* CENTER — CREDIT SCORE */}
   <div className="credit-header-score">
 
-    <h1>{borrower.score}</h1>
+    <div className="score-gauge">
+
+      <div className="score-circle">
+        {borrower.score}
+      </div>
+
+      <div className="score-label">
+        Moderate Risk
+      </div>
+
+    </div>
 
   </div>
 
 
-  {/* Brand + Report Info */}
+  {/* RIGHT SIDE — BUREAU SWITCH */}
   <div className="credit-header-right">
 
-    <h2 className="brand">Mend Credit Advisory</h2>
+    <div className="bureau-switch">
 
-    <p className="brand-sub">
-      Explaining Every Detail. Resolving Every Issue
-    </p>
+      <button className="bureau-btn active">CIBIL</button>
+      <button className="bureau-btn">Experian</button>
+      <button className="bureau-btn">Equifax</button>
+      <button className="bureau-btn">CRIF</button>
 
-    <p className="report-date">
-      Report Date: {borrower.reportDate}
-    </p>
+    </div>
 
   </div>
 
 </div>
 
-
       {/* Account Summary */}
-      <div className="b2b-profile-grid">
+     <div className="credit-metrics-grid">
 
-        <div className="b2b-card">
-          <h4>Total Accounts</h4>
-          <p className="b2b-stat">{borrower.totalAccounts}</p>
-        </div>
+  {/* CARD 1 — CREDIT SUMMARY */}
+  <div className="metric-card">
 
-        <div className="b2b-card">
-          <h4>Secured</h4>
-          <p className="b2b-stat">{borrower.secured}</p>
-        </div>
+    <h4>Credit Summary</h4>
 
-        <div className="b2b-card">
-          <h4>Unsecured</h4>
-          <p className="b2b-stat">{borrower.unsecured}</p>
-        </div>
+    <p>Total Accounts: {borrower.totalAccounts}</p>
+    <p>Active Loans: {borrower.activeAccounts}</p>
+    <p>Closed Loans: {borrower.closed}</p>
+    <p>Secured Loans: {borrower.secured}</p>
+    <p>Unsecured Loans: {borrower.unsecured}</p>
 
-        <div className="b2b-card">
-          <h4>Active Loans</h4>
-          <p className="b2b-stat">{borrower.activeAccounts}</p>
-        </div>
+  </div>
 
-        <div className="b2b-card">
-          <h4>Closed</h4>
-          <p className="b2b-stat">{borrower.closed}</p>
-        </div>
 
-      </div>
+  {/* CARD 2 — CREDIT EXPOSURE */}
+  <div className="metric-card">
+
+    <h4>Credit Exposure</h4>
+
+    <p>Total Sanctioned: ₹58,00,000</p>
+    <p>Total Outstanding: ₹41,20,000</p>
+    <p>Total Overdue: ₹55,614</p>
+    <p>Largest Loan: ₹25,00,000</p>
+
+  </div>
+
+
+  {/* CARD 3 — CREDIT UTILIZATION */}
+  <div className="metric-card">
+
+    <h4>Credit Utilization</h4>
+
+    <p>Total Limit: ₹10,00,000</p>
+    <p>Used Limit: ₹8,20,000</p>
+    <p>Utilization: 82%</p>
+
+  </div>
+
+
+  {/* CARD 4 — CREDIT AGE */}
+  <div className="metric-card">
+
+    <h4>Credit Age</h4>
+
+    <p>Oldest Credit Line: 8.4 yrs</p>
+    <p>Average Credit Age: 3.2 yrs</p>
+    <p>Newest Loan: 6 months</p>
+
+  </div>
+
+
+  {/* CARD 5 — CREDIT MIX */}
+  <div className="metric-card">
+
+    <h4>Credit Mix</h4>
+
+    <p>Secured Loans: {borrower.secured}</p>
+    <p>Unsecured Loans: {borrower.unsecured}</p>
+    <p>Credit Cards: 1</p>
+
+  </div>
+
+</div>
       {/* Credit Data Tabs */}
 
 <div className="credit-tabs">
