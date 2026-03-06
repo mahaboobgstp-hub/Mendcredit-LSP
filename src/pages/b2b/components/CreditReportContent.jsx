@@ -413,9 +413,7 @@ export default function CreditReportContent() {
       
      <div className="risk-analytics-tabs">
 
-<button className={riskTab === "summary" ? "tab active" : "tab"} onClick={() => setRiskTab("summary")}>
-Credit Summary
-</button>
+
 
 <button className={riskTab === "flags" ? "tab active" : "tab"} onClick={() => setRiskTab("flags")}>
 Risk Flags
@@ -487,16 +485,7 @@ Card Behaviour
 
 </div>
 
-      {riskTab === "summary" && (
-<div className="risk-box">
-<h4>Credit Summary</h4>
-<p>Total Accounts: 7</p>
-<p>Active Loans: 5</p>
-<p>Closed Loans: 2</p>
-<p>Secured Loans: 2</p>
-<p>Unsecured Loans: 5</p>
-</div>
-)}
+     
 
       {riskTab === "flags" && (
 <div className="risk-box">
