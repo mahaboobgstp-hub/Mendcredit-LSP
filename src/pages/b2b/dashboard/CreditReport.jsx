@@ -1,5 +1,5 @@
 import B2BLayout from "../../../layouts/B2BLayout";
-import CreditReportContent from "../../../components/CreditReportContent";
+import CreditReportContent from "../components/CreditReportContent";
 
 export default function CreditReport() {
   return (
