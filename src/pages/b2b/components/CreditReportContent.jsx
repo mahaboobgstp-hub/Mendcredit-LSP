@@ -546,6 +546,52 @@ export default function CreditReportContent() {
 
 </div>
 
+  <div className="risk-group-card risk-danger">
+<h4>Risk Flags</h4>
+
+<p>Recent DPD (6M): <strong>Yes</strong></p>
+<p>Written Off Accounts: <strong>1</strong></p>
+<p>High Credit Utilization: <strong>82%</strong></p>
+<p>Too Many Enquiries: <strong>7</strong></p>
+
+</div>
+
+  <div className="risk-group-card">
+<h4>Recent Credit Activity</h4>
+
+<p>New Loans (6M): <strong>2</strong></p>
+<p>New Loans (12M): <strong>3</strong></p>
+<p>Recently Closed Loans: <strong>1</strong></p>
+
+</div>
+
+  <div className="risk-group-card">
+<h4>Loan Pattern</h4>
+
+<p>Repeat Personal Loans: <strong>Yes</strong></p>
+<p>Loans in Last 24M: <strong>5</strong></p>
+<p>NBFC Exposure: <strong>High</strong></p>
+
+</div>
+
+  <div className="risk-group-card">
+<h4>Unsecured Exposure</h4>
+
+<p>Total Outstanding: <strong>₹41,20,000</strong></p>
+<p>Unsecured Exposure: <strong>₹18,00,000</strong></p>
+<p>Unsecured Ratio: <strong>43%</strong></p>
+
+</div>
+
+  <div className="risk-group-card">
+<h4>EMI Burden</h4>
+
+<p>Total EMI: <strong>₹42,500</strong></p>
+<p>Largest EMI: <strong>₹18,000</strong></p>
+<p>Active EMIs: <strong>5</strong></p>
+
+</div>
+
 </div>
 
 </div>      
