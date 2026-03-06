@@ -682,5 +682,6 @@ Card Behaviour
       </div>
 
     </div>
+   </div>    
   );
 }
