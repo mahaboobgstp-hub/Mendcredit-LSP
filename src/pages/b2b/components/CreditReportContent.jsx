@@ -359,7 +359,7 @@ export default function CreditReportContent() {
     </table>
 
   </div>
-)};
+)}
       
       <div>
         <span className="tag tag-warning">Recent DPDs</span>
