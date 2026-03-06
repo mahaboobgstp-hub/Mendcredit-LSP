@@ -195,23 +195,61 @@ export default function CreditReportContent() {
         <tr>
           <th>#</th>
           <th>Lender</th>
-          <th>Loan Type</th>
-          <th>Sanctioned Amount</th>
-          <th>Current Balance</th>
-          <th>Overdue Amount</th>
-        </tr>
-      </thead>
+          <th>Loan Details</th>
+<th>Sanctioned Amount</th>
+<th>Current Balance</th>
+<th>Overdue Amount</th>
+<th>Credit Status</th>
+<th>Written Off Amount</th>
+<th>Settlement Amount</th>
+<th>Status</th>
+</tr>
+</thead>
 
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>VASTU HFC</td>
-          <td>Property Loan</td>
-          <td>₹15,00,000</td>
-          <td>₹14,48,562</td>
-          <td>₹23,982</td>
-        </tr>
-      </tbody>
+
+<tr>
+
+<td>1</td>
+
+<td>VASTU HFC</td>
+
+<td>
+<div className="loan-details">
+
+<div>LP0000000193282</div>
+<div>Property Loan</div>
+<div>Joint</div>
+
+</div>
+</td>
+
+<td>₹15,00,000</td>
+
+<td>₹14,48,562</td>
+
+<td>₹23,982</td>
+
+<td>-</td>
+
+<td>
+
+<div className="wo-details">
+
+<div>Tot: -</div>
+<div>Pri: -</div>
+
+</div>
+
+</td>
+
+<td>-</td>
+
+<td>Active</td>
+
+</tr>
+
+</tbody>
 
     </table>
 
