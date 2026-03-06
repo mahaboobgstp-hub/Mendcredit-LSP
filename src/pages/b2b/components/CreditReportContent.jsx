@@ -133,8 +133,8 @@ export default function CreditReportContent() {
   </button>
 
   <button
-    className={activeTab === "" ? "tab active" : "tab"}
-    onClick={() => setActiveTab("")}
+    className={activeTab === "closed" ? "tab active" : "tab"}
+    onClick={() => setActiveTab("closed")}
   >
     Closed Loans
   </button>
