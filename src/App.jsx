@@ -71,6 +71,7 @@ function App() {
         <Route path="/b2b/dashboard/borrowers/:id/property-verification" element={<PropertyVerification />} />
         <Route path="/b2b/dashboard/decision" element={<CreditDecision />} />
         <Route path="/b2b/dashboard/audit" element={<AuditTrail />} />
+        <Route path="/b2b/dashboard/policies" element={<ProductPolicies />} />
         <Route path="/lsp/apply" element={<Step1KYC />} />
         <Route path="/lsp/apply/credit-check" element={<Step2CreditCheck />} />
         <Route path="/lsp/apply/employment" element={<Step3Employment />} />
