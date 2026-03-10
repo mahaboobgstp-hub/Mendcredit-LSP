@@ -1127,3 +1127,169 @@ body{
 font-size:16px;
   line-height:1.6;
 }
+/* PAGE BACKGROUND */
+
+body{
+font-family: Inter,system-ui,-apple-system,sans-serif;
+background:#f5f7fb;
+margin:0;
+padding:0;
+color:#1e293b;
+}
+
+
+/* MAIN PAGE CONTAINER */
+
+.page-container{
+padding:40px 60px;
+}
+
+
+/* PAGE TITLE */
+
+.page-title{
+font-size:26px;
+font-weight:700;
+margin-bottom:30px;
+color:#0f172a;
+}
+
+
+/* SNAPSHOT GRID */
+
+.snapshot-grid{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:18px;
+margin-bottom:35px;
+}
+
+
+/* CARD */
+
+.metric-card{
+background:#ffffff;
+border-radius:10px;
+padding:16px 18px;
+box-shadow:0 4px 14px rgba(0,0,0,0.05);
+border:1px solid #e6e9ef;
+transition:all .2s ease;
+}
+
+.metric-card:hover{
+box-shadow:0 8px 18px rgba(0,0,0,0.08);
+transform:translateY(-2px);
+}
+
+.metric-title{
+font-size:13px;
+color:#64748b;
+margin-bottom:6px;
+text-transform:capitalize;
+}
+
+.metric-value{
+font-size:20px;
+font-weight:600;
+color:#0f172a;
+}
+
+
+/* TABS */
+
+.tabs{
+display:flex;
+gap:25px;
+border-bottom:1px solid #e2e8f0;
+margin-bottom:25px;
+}
+
+.tab-button{
+background:none;
+border:none;
+padding-bottom:10px;
+font-size:14px;
+cursor:pointer;
+color:#64748b;
+transition:all .2s ease;
+}
+
+.tab-button:hover{
+color:#2563eb;
+}
+
+.tab-active{
+color:#2563eb;
+border-bottom:3px solid #2563eb;
+font-weight:600;
+}
+
+
+/* METRIC GRID */
+
+.metric-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+
+/* RISK SCORE COLORS */
+
+.risk-low{
+color:#16a34a;
+font-weight:700;
+}
+
+.risk-medium{
+color:#f59e0b;
+font-weight:700;
+}
+
+.risk-high{
+color:#dc2626;
+font-weight:700;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width:1400px){
+
+.snapshot-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+.metric-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+@media(max-width:900px){
+
+.snapshot-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.metric-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.page-container{
+padding:30px;
+}
+
+}
+
+@media(max-width:600px){
+
+.snapshot-grid{
+grid-template-columns:1fr;
+}
+
+.metric-grid{
+grid-template-columns:1fr;
+}
+
+}
