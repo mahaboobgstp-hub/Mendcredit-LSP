@@ -1,4 +1,7 @@
+import { useParams } from "react-router-dom";
+import "../../../styles/b2b.css";
 import React, { useState } from "react";
+
 
 export default function GstUnderwritingDashboard() {
 
@@ -254,81 +257,7 @@ return (
 
 </section>
 
-<style>{`
 
-body{
-font-family:Arial;
-background:#f5f6fa;
-margin:0
-}
-
-.container{
-max-width:1400px;
-margin:auto;
-padding:30px
-}
-
-h1{
-margin-bottom:30px
-}
-
-section{
-background:white;
-padding:20px;
-margin-bottom:20px;
-border-radius:8px;
-box-shadow:0 2px 8px rgba(0,0,0,0.05)
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:16px
-}
-
-.card{
-background:#f9fafc;
-padding:16px;
-border-radius:6px;
-border:1px solid #eee
-}
-
-.card-title{
-font-size:13px;
-color:#666
-}
-
-.card-value{
-font-size:20px;
-font-weight:600;
-margin-top:6px
-}
-
-.tabs{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-bottom:20px
-}
-
-.tabs button{
-border:none;
-padding:8px 14px;
-border-radius:6px;
-cursor:pointer;
-background:#e4e6eb
-}
-
-.tabs button.active{
-background:#2563eb;
-color:white
-}
-
-.tabContent{
-margin-top:10px
-}
-
-`}</style>
 
 </div>
 
