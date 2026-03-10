@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import "./PropertyDashboard.css";
+import { useParams } from "react-router-dom";
+import "../../../styles/b2b.css";
+
 
 export default function PropertyUnderwritingDashboard() {
 
