@@ -125,7 +125,7 @@ export default function BorrowerProfile() {
         </NavLink>
 
         <NavLink
-          to="Property"
+          to="property"
           className={({ isActive }) =>
             isActive ? "tab-link active" : "tab-link"
           }
