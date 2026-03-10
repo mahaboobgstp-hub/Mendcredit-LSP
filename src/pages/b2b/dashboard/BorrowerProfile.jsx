@@ -67,9 +67,9 @@ export default function BorrowerProfile() {
       <div className="borrower-header">
         <strong>Application ID:</strong> {id} &nbsp;&nbsp;
         <strong>Name:</strong> Rahul Sharma &nbsp;&nbsp;
-        <strong>PAN:</strong> ABCDE1234F
-        <strong>Aadhar:</strong> 52345678910
-        <strong>Udyam:</strong> AP0836000125
+        <strong>PAN:</strong> ABCDE1234F &nbsp;&nbsp;
+        <strong>Aadhar:</strong> 52345678910 &nbsp;&nbsp;
+        <strong>Udyam:</strong> AP0836000125 &nbsp;&nbsp;
         <strong>SE:</strong> AP000264456
         
       </div>
