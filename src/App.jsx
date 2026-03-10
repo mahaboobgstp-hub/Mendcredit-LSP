@@ -24,6 +24,7 @@ import ProvidentFund from "./pages/b2b/dashboard/ProvidentFund";
 import PropertyVerification from "./pages/b2b/dashboard/PropertyVerification";
 import CreditDecision from "./pages/b2b/dashboard/CreditDecision";
 import AuditTrail from "./pages/b2b/dashboard/AuditTrail";
+import ProductPolicies from "./pages/b2b/dashboard/ProductPolicies";
 import Step1KYC from "./pages/lsp/apply/Step1KYC";
 import Step2CreditCheck from "./pages/lsp/apply/Step2CreditCheck";
 import Step3Employment from "./pages/lsp/apply/Step3Employment";
@@ -60,6 +61,7 @@ function App() {
         <Route path="/b2b/dashboard/property" element={<PropertyVerification />} />
         <Route path="/b2b/dashboard/risk" element={<RiskEngine />} />
         <Route path="/b2b/dashboard/decision" element={<CreditDecision />} />
+        <Route path="/b2b/dashboard/policies" element={<ProductPolicies />} />
         <Route path="/b2b/dashboard/borrowers/:id/credit-report" element={<CreditReport />} />
         <Route path="/b2b/dashboard/borrowers/:id/bank-analysis" element={<BankAnalysis />} />
         <Route path="/b2b/dashboard/risk" element={<RiskEngine />} />
