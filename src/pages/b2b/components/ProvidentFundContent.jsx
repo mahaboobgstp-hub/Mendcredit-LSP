@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import "./PFUnderwritingDashboard.css";
+import { useParams } from "react-router-dom";
+import "../../../styles/b2b.css";
+
+
 
 const pfData = {
   employee_name: "Rahul Sharma",
