@@ -19,7 +19,7 @@ export default function Sidebar() {
           <li><NavLink to="/b2b/dashboard/risk">Risk Engine</NavLink></li>
           <li><NavLink to="/b2b/dashboard/decision">Credit Decision</NavLink></li>
           <li><NavLink to="/b2b/dashboard/audit">Audit Trail</NavLink></li>
-          <li><NavLink to="/b2b/dashboard/policies">Product Policies</NavLink></li>
+          <li><NavLink to="/b2b/dashboard/policies">Credit Policies</NavLink></li>
         </ul>
       </nav>
     </aside>
