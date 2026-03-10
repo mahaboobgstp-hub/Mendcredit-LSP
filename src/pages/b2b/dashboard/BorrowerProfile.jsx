@@ -3,6 +3,9 @@ import B2BLayout from "../../../layouts/B2BLayout";
 import CreditReportContent from "../components/CreditReportContent";
 import BankAnalysisContent from "../components/BankAnalysisContent";
 import IncomeVerificationContent from "../components/IncomeVerificationContent";
+import GstVerificationContent from "../components/GstVerificationContent";
+import ProvidentFundContent from "../components/ProvidentFundContent";
+import PropertyVerificationContent from "../components/PropertyVerificationContent";
 import RiskEngineContent from "../components/RiskEngineContent";
 import CreditDecisionContent from "../components/CreditDecisionContent";
 import "../../../styles/b2b.css";
@@ -11,6 +14,9 @@ import "../../../styles/b2b.css";
 import CreditReport from "./CreditReport";
 import BankAnalysis from "./BankAnalysis";
 import IncomeVerification from "./IncomeVerification";
+import GstVerification from "./GstVerification";
+import ProvidentFund from "./ProvidentFund";
+import PropertyVerification from "./PropertyVerification";
 import RiskEngine from "./RiskEngine";
 import CreditDecision from "./CreditDecision";
 
@@ -98,6 +104,33 @@ export default function BorrowerProfile() {
           }
         >
           Income
+        </NavLink>
+
+        <NavLink
+          to="gst"
+          className={({ isActive }) =>
+            isActive ? "tab-link active" : "tab-link"
+          }
+        >
+          GST
+        </NavLink>
+
+        <NavLink
+          to="pf"
+          className={({ isActive }) =>
+            isActive ? "tab-link active" : "tab-link"
+          }
+        >
+          PF
+        </NavLink>
+
+        <NavLink
+          to="Property"
+          className={({ isActive }) =>
+            isActive ? "tab-link active" : "tab-link"
+          }
+        >
+          Property Verification
         </NavLink>
 
         <NavLink
