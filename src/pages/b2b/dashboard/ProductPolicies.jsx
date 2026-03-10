@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./creditPolicy.css";
+import B2BLayout from "../../../layouts/B2BLayout";
+import "../../../styles/b2b.css";
 
 const loanProducts = [
   "Personal Loan",
