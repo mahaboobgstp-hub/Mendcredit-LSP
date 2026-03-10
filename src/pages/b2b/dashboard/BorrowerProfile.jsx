@@ -43,6 +43,41 @@ function Summary({ id }) {
       </div>
 
       <div className="b2b-card">
+        <h3>Bank Statement Overview</h3>
+        <p><strong>Avg Income:</strong> 120,000</p>
+        <p><strong>Avg Expenses:</strong> 78,000</p>
+        <p><strong>Surplus:</strong> 42,000</p>
+      </div>
+
+      <div className="b2b-card">
+        <h3>Income Tax</h3>
+        <p><strong>Annual Income:</strong> 12,00,000</p>
+        <p><strong>Tax Paid:</strong> 150,000</p>
+        <p><strong>Last Filing Period:</strong> AY 2025-26</p>
+      </div>
+
+      <div className="b2b-card">
+        <h3>Gst Overview</h3>
+        <p><strong>Legal Name:</strong> ABC Traders Pvt Ltd</p>
+        <p><strong>Business Constitution:</strong> Proprietorship</p>
+        <p><strong>Annual Turnover:</strong> 1.8cr</p>
+      </div>
+
+      <div className="b2b-card">
+        <h3>PF Details</h3>
+        <p><strong>Monthly Salary:</strong> 50,000</p>
+        <p><strong>Employment Tenure:</strong> 3.5 years</p>
+        <p><strong>Current Employer:</strong> MendCredit pvt ltd</p>
+      </div>
+  
+      <div className="b2b-card">
+        <h3>Property Details</h3>
+        <p><strong>Property Type:</strong> Residential</p>
+        <p><strong>Property Age:</strong> 8 years</p>
+        <p><strong>Market Value:</strong> 90,00,000</p>
+      </div>
+      
+      <div className="b2b-card">
         <h3>Risk Indicators</h3>
         <p><strong>Recent DPDs:</strong> Yes</p>
         <p><strong>High Utilization:</strong> Yes</p>
