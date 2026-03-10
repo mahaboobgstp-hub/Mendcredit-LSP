@@ -1,238 +1,180 @@
 import React, { useState } from "react";
 import "../../../styles/b2b.css";
+import { metricLibrary } from "./metricLibrary";
 
 const loanProducts = [
-  "Personal Loan",
-  "Business Loan",
-  "Housing Loan",
-  "Loan Against Property",
-  "Car Loan"
+"Personal Loan",
+"Business Loan",
+"Housing Loan",
+"Loan Against Property",
+"Car Loan"
 ];
 
-const defaultMetrics = {
-  creditScore: { value: 720, active: true },
-  foir: { value: 50, active: true },
-  maxDPD: { value: 30, active: true },
-  income: { value: 25000, active: true },
-  bankBalance: { value: 10000, active: true },
-  gstTurnover: { value: 1000000, active: false },
-  businessVintage: { value: 24, active: false },
-  propertyLTV: { value: 70, active: false }
+export default function CreditPolicyPage(){
+
+const [activeTab,setActiveTab]=useState("Personal Loan");
+
+const initializePolicy=()=>{
+let policy={};
+
+loanProducts.forEach(product=>{
+policy[product]={};
+
+metricLibrary.forEach(metric=>{
+policy[product][metric.id]={
+value:metric.default,
+active:false
+};
+});
+});
+
+return policy;
 };
 
-export default function CreditPolicyPage() {
+const [policies,setPolicies]=useState(initializePolicy());
 
-  const [activeTab, setActiveTab] = useState("Personal Loan");
+const updateValue=(metric,value)=>{
+setPolicies({
+...policies,
+[activeTab]:{
+...policies[activeTab],
+[metric]:{
+...policies[activeTab][metric],
+value:value
+}
+}
+});
+};
 
-  const [policies, setPolicies] = useState({
-    "Personal Loan": { ...defaultMetrics },
-    "Business Loan": { ...defaultMetrics },
-    "Housing Loan": { ...defaultMetrics },
-    "Loan Against Property": { ...defaultMetrics },
-    "Car Loan": { ...defaultMetrics }
-  });
+const toggleMetric=(metric)=>{
+setPolicies({
+...policies,
+[activeTab]:{
+...policies[activeTab],
+[metric]:{
+...policies[activeTab][metric],
+active:!policies[activeTab][metric].active
+}
+}
+});
+};
 
-  const handleSliderChange = (metric, value) => {
-    setPolicies({
-      ...policies,
-      [activeTab]: {
-        ...policies[activeTab],
-        [metric]: {
-          ...policies[activeTab][metric],
-          value
-        }
-      }
-    });
-  };
+return(
 
-  const toggleMetric = (metric) => {
-    setPolicies({
-      ...policies,
-      [activeTab]: {
-        ...policies[activeTab],
-        [metric]: {
-          ...policies[activeTab][metric],
-          active: !policies[activeTab][metric].active
-        }
-      }
-    });
-  };
+<div className="policyPage">
 
-  const policy = policies[activeTab];
+<h2>Credit Policy Engine</h2>
 
-  return (
-    <div className="policy-container">
+<div className="tabs">
+{loanProducts.map(tab=>(
+<button
+key={tab}
+className={activeTab===tab?"activeTab":""}
+onClick={()=>setActiveTab(tab)}
+>
+{tab}
+</button>
+))}
+</div>
 
-      <h2>Credit Policy Builder</h2>
+{Object.entries(groupMetrics()).map(([category,metrics])=>(
+<div key={category} className="category">
 
-      {/* Loan Product Tabs */}
-      <div className="tabs">
-        {loanProducts.map(product => (
-          <button
-            key={product}
-            className={activeTab === product ? "activeTab" : ""}
-            onClick={() => setActiveTab(product)}
-          >
-            {product}
-          </button>
-        ))}
-      </div>
+<h3>{category}</h3>
 
-      {/* Metrics Section */}
+<div className="metricsGrid">
 
-      <div className="metrics">
+{metrics.map(metric=>{
 
-        <MetricSlider
-          label="Minimum Credit Score"
-          metric="creditScore"
-          min={300}
-          max={900}
-          step={10}
-          policy={policy}
-          toggleMetric={toggleMetric}
-          handleSliderChange={handleSliderChange}
-          rule={`score >= ${policy.creditScore.value}`}
-        />
+const policy=policies[activeTab][metric.id];
 
-        <MetricSlider
-          label="FOIR (%)"
-          metric="foir"
-          min={10}
-          max={80}
-          step={5}
-          policy={policy}
-          toggleMetric={toggleMetric}
-          handleSliderChange={handleSliderChange}
-          rule={`foir <= ${policy.foir.value}%`}
-        />
+return(
 
-        <MetricSlider
-          label="Max DPD Allowed"
-          metric="maxDPD"
-          min={0}
-          max={90}
-          step={5}
-          policy={policy}
-          toggleMetric={toggleMetric}
-          handleSliderChange={handleSliderChange}
-          rule={`dpd <= ${policy.maxDPD.value}`}
-        />
+<div key={metric.id} className="metricCard">
 
-        <MetricSlider
-          label="Minimum Monthly Income"
-          metric="income"
-          min={5000}
-          max={200000}
-          step={5000}
-          policy={policy}
-          toggleMetric={toggleMetric}
-          handleSliderChange={handleSliderChange}
-          rule={`income >= ₹${policy.income.value}`}
-        />
+<div className="metricHeader">
 
-        <MetricSlider
-          label="Minimum Avg Bank Balance"
-          metric="bankBalance"
-          min={1000}
-          max={100000}
-          step={1000}
-          policy={policy}
-          toggleMetric={toggleMetric}
-          handleSliderChange={handleSliderChange}
-          rule={`avg_balance >= ₹${policy.bankBalance.value}`}
-        />
+<span>{metric.name}</span>
 
-        <MetricSlider
-          label="Minimum GST Turnover"
-          metric="gstTurnover"
-          min={100000}
-          max={50000000}
-          step={100000}
-          policy={policy}
-          toggleMetric={toggleMetric}
-          handleSliderChange={handleSliderChange}
-          rule={`gst_turnover >= ₹${policy.gstTurnover.value}`}
-        />
+<input
+type="checkbox"
+checked={policy.active}
+onChange={()=>toggleMetric(metric.id)}
+/>
 
-        <MetricSlider
-          label="Business Vintage (Months)"
-          metric="businessVintage"
-          min={6}
-          max={120}
-          step={6}
-          policy={policy}
-          toggleMetric={toggleMetric}
-          handleSliderChange={handleSliderChange}
-          rule={`vintage >= ${policy.businessVintage.value} months`}
-        />
+</div>
 
-        <MetricSlider
-          label="Maximum LTV (%)"
-          metric="propertyLTV"
-          min={30}
-          max={90}
-          step={5}
-          policy={policy}
-          toggleMetric={toggleMetric}
-          handleSliderChange={handleSliderChange}
-          rule={`ltv <= ${policy.propertyLTV.value}%`}
-        />
+{metric.type==="slider" && (
 
-      </div>
+<input
+type="range"
+min={metric.min}
+max={metric.max}
+step={metric.step}
+value={policy.value}
+onChange={(e)=>updateValue(metric.id,e.target.value)}
+/>
 
-    </div>
-  );
+)}
+
+{metric.type==="number" && (
+
+<input
+type="number"
+value={policy.value}
+onChange={(e)=>updateValue(metric.id,e.target.value)}
+/>
+
+)}
+
+{metric.type==="toggle" && (
+
+<select
+value={policy.value}
+onChange={(e)=>updateValue(metric.id,e.target.value)}
+>
+<option value="true">Yes</option>
+<option value="false">No</option>
+</select>
+
+)}
+
+<div className="metricValue">
+Value: {policy.value}
+</div>
+
+<div className="rule">
+Rule: {metric.rule(policy.value)}
+</div>
+
+</div>
+
+);
+
+})}
+
+</div>
+
+</div>
+
+))}
+
+</div>
+
+);
 }
 
+function groupMetrics(){
 
-function MetricSlider({
-  label,
-  metric,
-  min,
-  max,
-  step,
-  policy,
-  toggleMetric,
-  handleSliderChange,
-  rule
-}) {
+const grouped={};
 
-  return (
-    <div className="metric-card">
+metricLibrary.forEach(metric=>{
+if(!grouped[metric.category]){
+grouped[metric.category]=[];
+}
+grouped[metric.category].push(metric);
+});
 
-      <div className="metric-header">
+return grouped;
 
-        <label>{label}</label>
-
-        <input
-          type="checkbox"
-          checked={policy[metric].active}
-          onChange={() => toggleMetric(metric)}
-        />
-
-      </div>
-
-      <input
-        type="range"
-        min={min}
-        max={max}
-        step={step}
-        value={policy[metric].value}
-        onChange={(e) => handleSliderChange(metric, e.target.value)}
-      />
-
-      <div className="metric-value">
-
-        <span>{policy[metric].value}</span>
-
-      </div>
-
-      <div className="rule">
-
-        Rule: {rule}
-
-      </div>
-
-    </div>
-  );
 }
