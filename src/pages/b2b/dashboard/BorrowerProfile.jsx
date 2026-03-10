@@ -128,6 +128,9 @@ export default function BorrowerProfile() {
           <Route path="credit" element={<CreditReportContent />} />
          <Route path="bank" element={<BankAnalysisContent />} />
          <Route path="income" element={<IncomeVerificationContent />} />
+         <Route path="gst" element={<GstVerificationContent />} />
+         <Route path="pf" element={<ProvidentFundContent />} /> 
+         <Route path="property" element={<PropertyVerificationContent />} /> 
          <Route path="risk" element={<RiskEngineContent />} />
          <Route path="decision" element={<CreditDecisionContent />} />
         </Routes>
