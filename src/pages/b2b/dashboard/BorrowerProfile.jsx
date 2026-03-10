@@ -27,8 +27,12 @@ function Summary({ id }) {
         <h3>Basic Details</h3>
         <p><strong>Application ID:</strong> {id}</p>
         <p><strong>Name:</strong> Rahul Sharma</p>
+        <p><strong>S/o:</strong> Kunal Sharma</p>
+        <p><strong>Age:</strong> 36</p>
+        <p><strong>Employment Type:</strong> Salaried</p>
         <p><strong>PAN:</strong> ABCDE1234F</p>
         <p><strong>Mobile:</strong> 98XXXX321</p>
+
       </div>
 
       <div className="b2b-card">
@@ -64,6 +68,10 @@ export default function BorrowerProfile() {
         <strong>Application ID:</strong> {id} &nbsp;&nbsp;
         <strong>Name:</strong> Rahul Sharma &nbsp;&nbsp;
         <strong>PAN:</strong> ABCDE1234F
+        <strong>Aadhar:</strong> 52345678910
+        <strong>Udyam:</strong> AP0836000125
+        <strong>SE:</strong> AP000264456
+        
       </div>
 
       {/* TAB NAVIGATION */}
