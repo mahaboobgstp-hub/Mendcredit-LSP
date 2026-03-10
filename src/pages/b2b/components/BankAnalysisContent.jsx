@@ -1,4 +1,5 @@
 import React,{useState} from "react"
+import "./bank-analysis.css"
 
 export default function BankAnalysisPage(){
 
@@ -128,14 +129,14 @@ confidence:"87%"
 /* -------- METRIC CARD -------- */
 
 const Card = ({title,value})=>(
-<div className="bg-white shadow rounded-xl border p-4">
-<p className="text-gray-500 text-sm">{title}</p>
-<p className="text-xl font-semibold mt-1">{value}</p>
+<div className="metric-card">
+<p className="metric-title">{title}</p>
+<p className="metric-value">{value}</p>
 </div>
 )
 
 const Grid = ({data})=>(
-<div className="grid grid-cols-4 gap-4">
+<div className="metric-grid">
 {Object.entries(data).map(([k,v])=>(
 <Card key={k} title={k} value={v}/>
 ))}
@@ -144,13 +145,16 @@ const Grid = ({data})=>(
 
 return(
 
-<div className="p-8 bg-gray-100 min-h-screen">
+<div className="page-container">
 
-<h1 className="text-2xl font-bold mb-6">Bank Statement Underwriting Analysis</h1>
+<h1 className="page-title">
+Bank Statement Underwriting Analysis
+</h1>
+
 
 {/* Borrower Snapshot */}
 
-<div className="grid grid-cols-6 gap-4 mb-8">
+<div className="snapshot-grid">
 {Object.entries(snapshot).map(([k,v])=>(
 <Card key={k} title={k} value={v}/>
 ))}
@@ -159,43 +163,97 @@ return(
 
 {/* Tabs */}
 
-<div className="flex space-x-6 border-b pb-2 mb-6">
+<div className="tabs">
 
-{["overview","income","expense","cashflow","debt","discipline","fraud","risk"].map(t=>(
 <button
-key={t}
-onClick={()=>setTab(t)}
-className={`capitalize pb-2 ${tab===t ? "border-b-2 border-blue-600 font-semibold":"text-gray-500"}`}
+className={`tab-button ${tab==="overview"?"tab-active":""}`}
+onClick={()=>setTab("overview")}
 >
-{t}
+Overview
 </button>
-))}
+
+<button
+className={`tab-button ${tab==="income"?"tab-active":""}`}
+onClick={()=>setTab("income")}
+>
+Income
+</button>
+
+<button
+className={`tab-button ${tab==="expense"?"tab-active":""}`}
+onClick={()=>setTab("expense")}
+>
+Expense
+</button>
+
+<button
+className={`tab-button ${tab==="cashflow"?"tab-active":""}`}
+onClick={()=>setTab("cashflow")}
+>
+Cashflow
+</button>
+
+<button
+className={`tab-button ${tab==="debt"?"tab-active":""}`}
+onClick={()=>setTab("debt")}
+>
+Debt
+</button>
+
+<button
+className={`tab-button ${tab==="discipline"?"tab-active":""}`}
+onClick={()=>setTab("discipline")}
+>
+Discipline
+</button>
+
+<button
+className={`tab-button ${tab==="fraud"?"tab-active":""}`}
+onClick={()=>setTab("fraud")}
+>
+Fraud
+</button>
+
+<button
+className={`tab-button ${tab==="risk"?"tab-active":""}`}
+onClick={()=>setTab("risk")}
+>
+Risk
+</button>
 
 </div>
 
 
 {/* OVERVIEW */}
+
 {tab==="overview" && <Grid data={overview}/>}
 
 {/* INCOME */}
+
 {tab==="income" && <Grid data={income}/>}
 
 {/* EXPENSE */}
+
 {tab==="expense" && <Grid data={expense}/>}
 
 {/* CASHFLOW */}
+
 {tab==="cashflow" && <Grid data={cashflow}/>}
 
 {/* DEBT */}
+
 {tab==="debt" && <Grid data={debt}/>}
 
 {/* DISCIPLINE */}
+
 {tab==="discipline" && <Grid data={discipline}/>}
 
 {/* FRAUD */}
+
 {tab==="fraud" && <Grid data={fraud}/>}
 
 {/* RISK */}
+
 {tab==="risk" && <Grid data={risk}/>}
 
 </div>
