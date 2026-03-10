@@ -1,120 +1,205 @@
-import { useParams } from "react-router-dom";
-import "../../../styles/b2b.css";
+import React,{useState} from "react"
 
-export default function BankAnalysisContent() {
+export default function BankAnalysisPage(){
 
-  const { id } = useParams();
+const [tab,setTab] = useState("overview")
 
-  const borrower = {
-    name: "Rahul Sharma",
-    accountNumber: "XXXX1234",
-    bank: "HDFC Bank",
-    period: "Jan 2025 - Dec 2025",
-    avgBalance: "₹1,25,000",
-    totalCredits: "₹8,40,000",
-    totalDebits: "₹7,60,000",
-    emiDetected: "₹12,500",
-    bounceCount: 1,
-    cashDeposits: "₹65,000",
-    riskLevel: "Moderate"
-  };
+/* ---------------- SNAPSHOT ---------------- */
 
-  return (
-    <div className="b2b-module-container">
+const snapshot={
+avgIncome:"₹1,20,000",
+avgExpense:"₹78,000",
+surplus:"₹42,000",
+emiBurden:"₹18,000",
+cashFlowScore:"742",
+loanCapacity:"₹12,00,000"
+}
 
-      <h2>Bank Statement Analysis</h2>
-      <p className="b2b-subtitle">
-        Transaction-level financial analysis for repayment capacity assessment.
-      </p>
+/* ---------------- ACCOUNT OVERVIEW ---------------- */
 
-      {/* Borrower Info */}
-      <div className="b2b-card b2b-borrower-header">
+const overview={
+accountAge:"5 Years",
+accountType:"Current",
+avgBalance:"₹1,80,000",
+minBalance:"₹12,000",
+maxBalance:"₹3,40,000",
+monthlyCredits:"₹1,25,000",
+monthlyDebits:"₹82,000",
+totalCredits:"₹15,00,000",
+totalDebits:"₹9,80,000",
+monthsAnalyzed:"12"
+}
 
-        <div>
-          <strong>{borrower.name}</strong>
-          <p>Account: {borrower.accountNumber} · Bank: {borrower.bank}</p>
-        </div>
+/* ---------------- INCOME ---------------- */
 
-        <div className="b2b-bureau-info">
-          <p>Statement Period</p>
-          <strong>{borrower.period}</strong>
-        </div>
+const income={
+salaryDetected:"Yes",
+businessIncome:"Yes",
+incomeFrequency:"Monthly",
+avgIncome:"₹1,20,000",
+incomeVariance:"18%",
+highestIncomeMonth:"₹1,60,000",
+lowestIncomeMonth:"₹95,000",
+incomeTrend:"Stable",
+topIncomeSource:"ABC Pvt Ltd",
+secondaryIncome:"Freelance"
+}
 
-      </div>
+/* ---------------- EXPENSE ---------------- */
 
-      {/* Financial Summary */}
-      <div className="b2b-profile-grid">
+const expense={
+emi:"₹18,000",
+rent:"₹15,000",
+utilities:"₹6,500",
+insurance:"₹3,200",
+lifestyle:"₹12,000",
+shopping:"₹8,000",
+travel:"₹4,200",
+food:"₹6,100",
+healthcare:"₹1,800",
+others:"₹2,500"
+}
 
-        <div className="b2b-card">
-          <h4>Average Balance</h4>
-          <p className="b2b-stat">{borrower.avgBalance}</p>
-        </div>
+/* ---------------- CASHFLOW ---------------- */
 
-        <div className="b2b-card">
-          <h4>Total Credits</h4>
-          <p className="b2b-stat">{borrower.totalCredits}</p>
-        </div>
+const cashflow={
+netMonthlyFlow:"₹42,000",
+avgMonthlySurplus:"₹39,000",
+positiveMonths:"10",
+negativeMonths:"2",
+cashflowVolatility:"15%",
+highestSurplus:"₹65,000",
+lowestSurplus:"₹5,000",
+medianBalance:"₹1,50,000",
+balanceStdDev:"₹28,000",
+liquidityScore:"82"
+}
 
-        <div className="b2b-card">
-          <h4>Total Debits</h4>
-          <p className="b2b-stat">{borrower.totalDebits}</p>
-        </div>
+/* ---------------- DEBT ---------------- */
 
-        <div className="b2b-card">
-          <h4>Detected EMI</h4>
-          <p className="b2b-stat">{borrower.emiDetected}</p>
-        </div>
+const debt={
+activeLoans:"3",
+lenders:"HDFC,Bajaj,ICICI",
+totalEMI:"₹18,000",
+debtIncomeRatio:"15%",
+largestEMI:"₹9,000",
+smallestEMI:"₹3,000",
+creditCardPayments:"₹6,000",
+loanPrepayment:"₹20,000"
+}
 
-      </div>
+/* ---------------- DISCIPLINE ---------------- */
 
-      {/* Risk Indicators */}
-      <div className="b2b-credit-score-card">
+const discipline={
+chequeBounce:"0",
+nachReturn:"1",
+failedUPI:"0",
+negativeBalanceEvents:"2",
+lowBalanceDays:"4",
+overdraftUsage:"0",
+lateEMI:"1",
+irregularIncomeMonths:"1"
+}
 
-        <div className="b2b-credit-score-main">
-          <h3>Risk Level</h3>
-          <p className="b2b-risk">{borrower.riskLevel}</p>
-        </div>
+/* ---------------- FRAUD ---------------- */
 
-        <div className="b2b-credit-summary">
-          <p><strong>Cheque Bounces:</strong> {borrower.bounceCount}</p>
-          <p><strong>Cash Deposits:</strong> {borrower.cashDeposits}</p>
-          <p><strong>EMI Detected:</strong> {borrower.emiDetected}</p>
-        </div>
+const fraud={
+circularTransactions:"No",
+selfTransfers:"Yes",
+cashHeavyDeposits:"No",
+suddenIncomeSpike:"No",
+roundTransactions:"2",
+sameDayCreditDebit:"3",
+highValueCash:"No",
+suspiciousCounterparty:"None"
+}
 
-      </div>
+/* ---------------- RISK ---------------- */
 
-      {/* Risk Flags */}
-      <div className="b2b-risk-tags">
+const risk={
+score:"742",
+category:"LOW RISK",
+decision:"APPROVE",
+debtCapacity:"₹22,000 EMI",
+recommendedLoan:"₹12L",
+confidence:"87%"
+}
 
-        <span className="tag tag-warning">Cheque Bounce Detected</span>
-        <span className="tag tag-warning">High Cash Deposits</span>
+/* -------- METRIC CARD -------- */
 
-      </div>
+const Card = ({title,value})=>(
+<div className="bg-white shadow rounded-xl border p-4">
+<p className="text-gray-500 text-sm">{title}</p>
+<p className="text-xl font-semibold mt-1">{value}</p>
+</div>
+)
 
-      {/* Transaction Insights */}
-      <div className="b2b-card">
+const Grid = ({data})=>(
+<div className="grid grid-cols-4 gap-4">
+{Object.entries(data).map(([k,v])=>(
+<Card key={k} title={k} value={v}/>
+))}
+</div>
+)
 
-        <h3>Transaction Insights</h3>
+return(
 
-        <ul className="b2b-insights-list">
-          <li>Regular salary credits detected on the 5th of each month.</li>
-          <li>EMI repayment pattern observed for housing loan.</li>
-          <li>Occasional high-value cash deposits detected.</li>
-          <li>No prolonged negative balance periods.</li>
-        </ul>
+<div className="p-8 bg-gray-100 min-h-screen">
 
-      </div>
+<h1 className="text-2xl font-bold mb-6">Bank Statement Underwriting Analysis</h1>
 
-      {/* Disclaimer */}
-      <div className="b2b-disclaimer">
+{/* Borrower Snapshot */}
 
-        Bank statement insights are generated through automated
-        transaction categorization. Lenders should independently
-        validate borrower financial behaviour before making
-        final underwriting decisions.
+<div className="grid grid-cols-6 gap-4 mb-8">
+{Object.entries(snapshot).map(([k,v])=>(
+<Card key={k} title={k} value={v}/>
+))}
+</div>
 
-      </div>
 
-    </div>
-  );
+{/* Tabs */}
+
+<div className="flex space-x-6 border-b pb-2 mb-6">
+
+{["overview","income","expense","cashflow","debt","discipline","fraud","risk"].map(t=>(
+<button
+key={t}
+onClick={()=>setTab(t)}
+className={`capitalize pb-2 ${tab===t ? "border-b-2 border-blue-600 font-semibold":"text-gray-500"}`}
+>
+{t}
+</button>
+))}
+
+</div>
+
+
+{/* OVERVIEW */}
+{tab==="overview" && <Grid data={overview}/>}
+
+{/* INCOME */}
+{tab==="income" && <Grid data={income}/>}
+
+{/* EXPENSE */}
+{tab==="expense" && <Grid data={expense}/>}
+
+{/* CASHFLOW */}
+{tab==="cashflow" && <Grid data={cashflow}/>}
+
+{/* DEBT */}
+{tab==="debt" && <Grid data={debt}/>}
+
+{/* DISCIPLINE */}
+{tab==="discipline" && <Grid data={discipline}/>}
+
+{/* FRAUD */}
+{tab==="fraud" && <Grid data={fraud}/>}
+
+{/* RISK */}
+{tab==="risk" && <Grid data={risk}/>}
+
+</div>
+
+)
+
 }
