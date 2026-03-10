@@ -65,8 +65,8 @@ function App() {
         <Route path="/b2b/dashboard/risk" element={<RiskEngine />} />
         <Route path="/b2b/dashboard/borrowers/:id/income-verification" element={<IncomeVerification />} />
         <Route path="/b2b/dashboard/borrowers/:id/gst-verification" element={<GstVerification />} />
-        <Route path="/b2b/dashboard/borrowers/:id/pf" element={<ProvidentFund />} />
-        <Route path="/b2b/dashboard/borrowers/:id/property" element={<PropertyVerification />} />
+        <Route path="/b2b/dashboard/borrowers/:id/provident-fund" element={<ProvidentFund />} />
+        <Route path="/b2b/dashboard/borrowers/:id/property-verification" element={<PropertyVerification />} />
         <Route path="/b2b/dashboard/decision" element={<CreditDecision />} />
         <Route path="/b2b/dashboard/audit" element={<AuditTrail />} />
         <Route path="/lsp/apply" element={<Step1KYC />} />
