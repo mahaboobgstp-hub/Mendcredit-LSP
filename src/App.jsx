@@ -25,7 +25,6 @@ import PropertyVerification from "./pages/b2b/dashboard/PropertyVerification";
 import CreditDecision from "./pages/b2b/dashboard/CreditDecision";
 import AuditTrail from "./pages/b2b/dashboard/AuditTrail";
 import ProductPolicies from "./pages/b2b/dashboard/ProductPolicies";
-import MetricLibrary from "./pages/b2b/components/MetricLibrary";
 import Step1KYC from "./pages/lsp/apply/Step1KYC";
 import Step2CreditCheck from "./pages/lsp/apply/Step2CreditCheck";
 import Step3Employment from "./pages/lsp/apply/Step3Employment";
