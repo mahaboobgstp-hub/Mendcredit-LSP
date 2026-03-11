@@ -1,5 +1,9 @@
 import { useParams } from "react-router-dom";
 import "../../../styles/b2b.css";
+import { evaluateRules } from "../../../engine/ruleEngine";
+import { getDecision } from "../../../engine/decisionEngine";
+import { calculateRiskScore } from "../../../engine/scoreEngine";
+
 
 export default function RiskEngineContent() {
 
@@ -18,7 +22,14 @@ export default function RiskEngineContent() {
     recommendedLoan: "₹5,00,000",
     maxEligibleEMI: "₹18,000"
   };
-
+const policy = {
+  metrics: {
+    credit_score: { value: 720, active: true },
+    foir: { value: 50, active: true },
+    max_dpd: { value: 30, active: true }
+  }
+};
+  
   return (
     <div className="b2b-module-container">
 
