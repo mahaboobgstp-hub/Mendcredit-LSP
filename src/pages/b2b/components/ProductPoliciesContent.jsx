@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../../styles/b2b.css";
-import { MetricLibrary } from "./MetricLibrary";
+import { metricLibrary } from "./metricLibrary";
 
 const loanProducts = [
 "Personal Loan",
