@@ -22,13 +22,27 @@ export default function RiskEngineContent() {
     recommendedLoan: "₹5,00,000",
     maxEligibleEMI: "₹18,000"
   };
-const policy = {
-  metrics: {
-    credit_score: { value: 720, active: true },
-    foir: { value: 50, active: true },
-    max_dpd: { value: 30, active: true }
-  }
-};
+  // Borrower metrics used by engine
+  const borrowerData = {
+    credit_score: borrower.creditScore,
+    foir: 22,
+    max_dpd: 0,
+    avg_bank_balance: 18000
+  };
+  
+ // Policy rules
+  const policy = {
+    metrics: {
+      credit_score: { value: 720, active: true },
+      foir: { value: 50, active: true },
+      max_dpd: { value: 30, active: true }
+    }
+  };
+
+   // Run engines
+  const ruleResults = evaluateRules(policy, borrowerData);
+  const decision = getDecision(ruleResults);
+  const riskScore = calculateRiskScore(borrowerData);
   
   return (
     <div className="b2b-module-container">
@@ -58,13 +72,14 @@ const policy = {
 
         <div className="b2b-credit-score-main">
           <h3>Overall Risk</h3>
-          <p className="b2b-risk">{borrower.overallRisk}</p>
+         <p className="b2b-risk">{decision}</p>
         </div>
 
         <div className="b2b-credit-summary">
           <p><strong>Repayment Capacity:</strong> {borrower.repaymentCapacity}</p>
           <p><strong>Behavior Risk:</strong> {borrower.behaviorRisk}</p>
           <p><strong>FOIR:</strong> {borrower.foir}</p>
+          <p><strong>Risk Score:</strong> {riskScore}</p>
         </div>
 
       </div>
@@ -111,6 +126,17 @@ const policy = {
         </p>
 
       </div>
+
+      {/* Rule Evaluation */}
+<div className="b2b-card">
+
+  <h3>Rule Evaluation</h3>
+
+  <pre>
+    {JSON.stringify(ruleResults, null, 2)}
+  </pre>
+
+</div>
 
       {/* Risk Flags */}
       <div className="b2b-risk-tags">
