@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import "../../../styles/b2b.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 
