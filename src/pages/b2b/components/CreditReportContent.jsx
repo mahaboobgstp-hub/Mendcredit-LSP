@@ -10,6 +10,19 @@ export default function CreditReportContent() {
   const { id } = useParams();
   const API_BASE = "https://credit-backend-7gsz.onrender.com/api/credit";
   const [activeTab, setActiveTab] = useState("active");
+  const [summary, setSummary] = useState({});
+
+  useEffect(() => {
+
+fetch(`${API_BASE}/summary`)
+  .then(res => res.json())
+  .then(data => {
+    console.log("Summary API:", data);
+    setSummary(data);
+  })
+  .catch(err => console.error(err));
+
+}, []);
   
 
   const borrower = {
@@ -93,9 +106,9 @@ export default function CreditReportContent() {
 
     <h4>Credit Summary</h4>
 
-    <p>Total Accounts: {borrower.totalAccounts}</p>
-    <p>Active Loans: {borrower.activeAccounts}</p>
-    <p>Closed Loans: {borrower.closed}</p>
+    <p>Total Accounts: {summary.totalAccounts}</p>
+    <p>Active Loans: {summary.activeLoans}</p>
+    <p>Closed Loans: {summary.closedLoans}</p>
     <p>Secured Loans: {borrower.secured}</p>
     <p>Unsecured Loans: {borrower.unsecured}</p>
 
@@ -107,8 +120,8 @@ export default function CreditReportContent() {
 
     <h4>Credit Exposure</h4>
 
-    <p>Total Sanctioned: ₹58,00,000</p>
-    <p>Total Outstanding: ₹41,20,000</p>
+    <p>Total Sanctioned: ₹{summary.totalSanctioned}</p>
+    <p>Total Outstanding: ₹{summary.totalOutstanding}</p>
     <p>Total Overdue: ₹55,614</p>
     <p>Largest Loan: ₹25,00,000</p>
 
