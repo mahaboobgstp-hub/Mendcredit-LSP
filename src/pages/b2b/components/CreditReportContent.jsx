@@ -13,8 +13,8 @@ export default function CreditReportContent() {
   const [summary, setSummary] = useState({});
 
   useEffect(() => {
-
-fetch(`${API_BASE}/summary`)
+const customerId = "CUST001";   // temporary test ID
+fetch(`${API_BASE}/summary?customerId=${customerId}`)
   .then(res => res.json())
   .then(data => {
     console.log("Summary API:", data);
