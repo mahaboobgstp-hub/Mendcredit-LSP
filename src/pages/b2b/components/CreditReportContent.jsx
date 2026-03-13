@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 export default function CreditReportContent() {
 
   const { id } = useParams();
+  const API_BASE = "https://credit-backend-7gsz.onrender.com/api/credit";
   const [activeTab, setActiveTab] = useState("active");
   
 
