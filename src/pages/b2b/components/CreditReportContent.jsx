@@ -10,20 +10,38 @@ export default function CreditReportContent() {
   const { id } = useParams();
   const API_BASE = "https://credit-backend-7gsz.onrender.com/api/credit";
   const [activeTab, setActiveTab] = useState("active");
-  const [summary, setSummary] = useState({});
-
-  useEffect(() => {
-const customerId = "CUST001";   // temporary test ID
-fetch(`${API_BASE}/summary?customerId=${customerId}`)
-  .then(res => res.json())
-  .then(data => {
-    console.log("Summary API:", data);
-    setSummary(data);
-  })
-  .catch(err => console.error(err));
-
-}, []);
   
+  const [summary,setSummary] = useState({})
+  const [exposure,setExposure] = useState({})
+  const [accounts,setAccounts] = useState([])
+  const [negativeLoans,setNegativeLoans] = useState([])
+  const [enquiries,setEnquiries] = useState([])
+
+ useEffect(()=>{
+
+ const customerId="CUST001"
+
+ fetch(`${API_BASE}/summary?customerId=${customerId}`)
+  .then(r=>r.json())
+  .then(setSummary)
+
+ fetch(`${API_BASE}/exposure?customerId=${customerId}`)
+  .then(r=>r.json())
+  .then(setExposure)
+
+ fetch(`${API_BASE}/accounts?customerId=${customerId}`)
+  .then(r=>r.json())
+  .then(setAccounts)
+
+ fetch(`${API_BASE}/negative?customerId=${customerId}`)
+  .then(r=>r.json())
+  .then(setNegativeLoans)
+
+ fetch(`${API_BASE}/enquiries?customerId=${customerId}`)
+  .then(r=>r.json())
+  .then(setEnquiries)
+
+},[])
 
   const borrower = {
     name: "Rahul Sharma",
