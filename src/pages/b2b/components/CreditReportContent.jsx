@@ -17,6 +17,8 @@ export default function CreditReportContent() {
   const [negativeLoans,setNegativeLoans] = useState([])
   const [enquiries,setEnquiries] = useState([])
   const [utilization,setUtilization] = useState({})
+  const [creditAge,setCreditAge] = useState({})
+  const [creditMix,setCreditMix] = useState({})
 
  useEffect(()=>{
 
@@ -45,6 +47,14 @@ export default function CreditReportContent() {
  fetch(`${API_BASE}/enquiries?customerId=${customerId}`)
   .then(r=>r.json())
   .then(setEnquiries)
+
+ fetch(`${API_BASE}/credit-age?customerId=CUST001`)
+ .then(res => res.json())
+ .then(setCreditAge)
+
+fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
+ .then(res => res.json())
+ .then(setCreditMix)  
 
 },[])
 
@@ -165,28 +175,30 @@ export default function CreditReportContent() {
 </div>
 
 
-  {/* CARD 4 — CREDIT AGE */}
   <div className="metric-card">
 
-    <h4>Credit Age</h4>
+ <h4>Credit Age</h4>
 
-    <p>Oldest Credit Line: 8.4 yrs</p>
-    <p>Average Credit Age: 3.2 yrs</p>
-    <p>Newest Loan: 6 months</p>
+ <p>Oldest Credit Line: {creditAge.oldestCreditLine} yrs</p>
 
-  </div>
+ <p>Average Credit Age: {creditAge.averageCreditAge} yrs</p>
+
+ <p>Newest Loan: {creditAge.newestLoan} months</p>
+
+</div>
 
 
-  {/* CARD 5 — CREDIT MIX */}
   <div className="metric-card">
 
-    <h4>Credit Mix</h4>
+ <h4>Credit Mix</h4>
 
-    <p>Secured Loans: {borrower.secured}</p>
-    <p>Unsecured Loans: {borrower.unsecured}</p>
-    <p>Credit Cards: 1</p>
+ <p>Secured Loans: {creditMix.securedLoans}</p>
 
-  </div>
+ <p>Unsecured Loans: {creditMix.unsecuredLoans}</p>
+
+ <p>Credit Cards: {creditMix.creditCards}</p>
+
+</div>
 
 </div>
       {/* Credit Data Tabs */}
