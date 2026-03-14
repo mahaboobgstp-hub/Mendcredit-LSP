@@ -138,7 +138,7 @@ export default function CreditReportContent() {
 
     <h4>Credit Exposure</h4>
 
-    <p>Total Sanctioned: ₹{exposure.totalSanctioned}</p>
+    <p>Total Sanctioned: ₹{summary.totalSanctioned}</p>
 <p>Total Outstanding: ₹{exposure.totalOutstanding}</p>
 <p>Total Overdue: ₹{exposure.totalOverdue}</p>
 <p>Largest Loan: ₹{exposure.largestLoan}</p>
