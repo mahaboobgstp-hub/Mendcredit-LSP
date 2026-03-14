@@ -127,8 +127,8 @@ export default function CreditReportContent() {
     <p>Total Accounts: {summary.totalAccounts}</p>
     <p>Active Loans: {summary.activeLoans}</p>
     <p>Closed Loans: {summary.closedLoans}</p>
-    <p>Secured Loans: {borrower.secured}</p>
-    <p>Unsecured Loans: {borrower.unsecured}</p>
+    <p>Secured Loans: {summary.securedLoans}</p>
+    <p>Unsecured Loans: {summary.unsecuredLoans}</p>
 
   </div>
 
@@ -138,10 +138,10 @@ export default function CreditReportContent() {
 
     <h4>Credit Exposure</h4>
 
-    <p>Total Sanctioned: ₹{summary.totalSanctioned}</p>
-    <p>Total Outstanding: ₹{summary.totalOutstanding}</p>
-    <p>Total Overdue: ₹55,614</p>
-    <p>Largest Loan: ₹25,00,000</p>
+    <p>Total Sanctioned: ₹{exposure.totalSanctioned}</p>
+<p>Total Outstanding: ₹{exposure.totalOutstanding}</p>
+<p>Total Overdue: ₹{exposure.totalOverdue}</p>
+<p>Largest Loan: ₹{exposure.largestLoan}</p>
 
   </div>
 
