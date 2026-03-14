@@ -16,6 +16,7 @@ export default function CreditReportContent() {
   const [accounts,setAccounts] = useState([])
   const [negativeLoans,setNegativeLoans] = useState([])
   const [enquiries,setEnquiries] = useState([])
+  const [utilization,setUtilization] = useState({})
 
  useEffect(()=>{
 
@@ -32,6 +33,10 @@ export default function CreditReportContent() {
  fetch(`${API_BASE}/accounts?customerId=${customerId}`)
   .then(r=>r.json())
   .then(setAccounts)
+
+ fetch(`${API_BASE}/utilization?customerId=CUST001`)
+ .then(res => res.json())
+ .then(data => setUtilization(data))  
 
  fetch(`${API_BASE}/negative?customerId=${customerId}`)
   .then(r=>r.json())
@@ -147,15 +152,17 @@ export default function CreditReportContent() {
 
 
   {/* CARD 3 — CREDIT UTILIZATION */}
-  <div className="metric-card">
+<div className="metric-card">
 
-    <h4>Credit Utilization</h4>
+ <h4>Credit Utilization</h4>
 
-    <p>Total Limit: ₹10,00,000</p>
-    <p>Used Limit: ₹8,20,000</p>
-    <p>Utilization: 82%</p>
+ <p>Total Limit: ₹{utilization.totalLimit?.toLocaleString()}</p>
 
-  </div>
+ <p>Used Limit: ₹{utilization.usedLimit?.toLocaleString()}</p>
+
+ <p>Utilization: {utilization.utilization}%</p>
+
+</div>
 
 
   {/* CARD 4 — CREDIT AGE */}
