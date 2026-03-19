@@ -45,7 +45,7 @@ export default function CreditReportContent() {
     setEnquiries(data.enquiries || [])
     setDpdData(data.dpd || [])
     setDemography(data.demography || {})
-    setClosedLoans(data.closedLoans || {})
+   
 
     // RISK
     setRisk(data.riskMetrics || {})
