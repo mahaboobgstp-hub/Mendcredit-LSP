@@ -586,15 +586,19 @@ export default function CreditReportContent() {
           <td>{demography.ckyc || "Not Available"}</td>
         </tr>
 
+        {/* 🔥 PHONE FLAGS */}
         <tr>
           <td>Mobile Numbers</td>
           <td>
-            {demography.mobileNumbers?.map((m,i)=>(
-              <div key={i}>{m}</div>
+            {demography.phones?.map((p,i)=>(
+              <div key={i}>
+                {p.number} {p.verified ? "✅ Verified" : "❌ Not Verified"}
+              </div>
             ))}
           </td>
         </tr>
 
+        {/* EMAIL */}
         <tr>
           <td>Email IDs</td>
           <td>
@@ -604,14 +608,26 @@ export default function CreditReportContent() {
           </td>
         </tr>
 
+        {/* 🔥 ADDRESS TIMELINE */}
         <tr>
-          <td>Addresses</td>
+          <td>Addresses (Latest → Old)</td>
           <td>
             {demography.addresses?.map((a,i)=>(
-              <div key={i}>
-                {a.line1}, {a.line2}, {a.pincode}
+              <div key={i} style={{marginBottom:"10px"}}>
+                <div>{a.line1}, {a.line2}</div>
+                <div>{a.pincode} | State: {a.state}</div>
+                <div><strong>Reported:</strong> {a.reportedDate}</div>
+                <hr/>
               </div>
             ))}
+          </td>
+        </tr>
+
+        {/* 🔥 KYC SCORE */}
+        <tr>
+          <td>KYC Score</td>
+          <td>
+            {demography.kycScore} / 100 ({demography.kycStatus})
           </td>
         </tr>
 
@@ -620,7 +636,7 @@ export default function CreditReportContent() {
     </table>
 
   </div>
-)}  
+)}
       
 {/* RISK METRICS SECTION */}
 
