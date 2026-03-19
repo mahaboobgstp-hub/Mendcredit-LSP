@@ -19,46 +19,36 @@ export default function CreditReportContent() {
   const [utilization,setUtilization] = useState({})
   const [creditAge,setCreditAge] = useState({})
   const [creditMix,setCreditMix] = useState({})
+  const [risk, setRisk] = useState({})
 
  useEffect(()=>{
 
  const customerId="CUST001"
 
- fetch(`${API_BASE}/summary?customerId=${customerId}`)
-  .then(r=>r.json())
-  .then(setSummary)
-
- fetch(`${API_BASE}/exposure?customerId=${customerId}`)
-  .then(r=>r.json())
-  .then(setExposure)
-
- fetch(`${API_BASE}/accounts?customerId=${customerId}`)
-  .then(r=>r.json())
-  .then(setAccounts)
-
- fetch(`${API_BASE}/utilization?customerId=CUST001`)
- .then(res => res.json())
- .then(data => setUtilization(data))  
-
- fetch(`${API_BASE}/negative?customerId=${customerId}`)
-  .then(r=>r.json())
-  .then(setNegativeLoans)
-
- fetch(`${API_BASE}/enquiries?customerId=${customerId}`)
-  .then(r=>r.json())
-  .then(setEnquiries)
-
- fetch(`${API_BASE}/credit-age?customerId=CUST001`)
- .then(res => res.json())
- .then(setCreditAge)
-
- fetch(`${API_BASE}/dpd?customerId=CUST001`)
+ fetch(`${API_BASE}/report?customerId=${customerId}`)
   .then(res => res.json())
-  .then(data => setDpdData(data))  
+  .then(data => {
 
-fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
- .then(res => res.json())
- .then(setCreditMix)  
+    console.log("FULL REPORT:", data)
+
+    // TOP CARDS
+    setSummary(data.summary || {})
+    setExposure(data.exposure || {})
+    setUtilization(data.utilization || {})
+    setCreditAge(data.creditAge || {})
+    setCreditMix(data.creditMix || {})
+
+    // TABLES
+    setAccounts(data.accounts || [])
+    setNegativeLoans(data.negativeLoans || [])
+    setEnquiries(data.enquiries || [])
+    setDpdData(data.dpd || [])
+
+    // RISK
+    setRisk(data.riskMetrics || {})
+
+  })
+  .catch(err => console.error("API ERROR:", err))
 
 },[])
 
@@ -359,19 +349,27 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
       </thead>
 
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Union Bank</td>
-          <td>114125140000037</td>
-          <td>Mudra Loan</td>
-          <td>Guarantor</td>
-          <td>02-05-2019</td>
-          <td>₹10,00,000</td>
-          <td>₹9,88,706</td>
-          <td>09-11-2024</td>
-          <td>Active</td>
-        </tr>
-      </tbody>
+
+{accounts
+  .filter(a => a.status === "Active")
+  .map((a, i) => (
+
+<tr key={i}>
+<td>{i+1}</td>
+<td>{a.lender}</td>
+<td>{a.loanNo}</td>
+<td>{a.type}</td>
+<td>{a.ownership}</td>
+<td>{a.sanctionedDate}</td>
+<td>₹{a.sanctionedAmount}</td>
+<td>₹{a.currentBalance}</td>
+<td>{a.lastPaymentDate}</td>
+<td>{a.status}</td>
+</tr>
+
+))}
+
+</tbody>
 
     </table>
 
@@ -406,46 +404,38 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 
       <tbody>
 
-<tr>
+{negativeLoans.map((a,i)=>(
+<tr key={i}>
 
-<td>1</td>
+<td>{i+1}</td>
 
-<td>VASTU HFC</td>
+<td>{a.lender}</td>
 
 <td>
 <div className="loan-details">
-
-<div>LP0000000193282</div>
-<div>Property Loan</div>
-<div>Joint</div>
-
+<div>{a.loanNo}</div>
+<div>{a.type}</div>
+<div>{a.ownership}</div>
 </div>
 </td>
 
-<td>₹15,00,000</td>
-
-<td>₹14,48,562</td>
-
-<td>₹23,982</td>
-
+<td>₹{a.sanctionedAmount}</td>
+<td>₹{a.currentBalance}</td>
+<td>₹{a.overdue}</td>
 <td>-</td>
 
 <td>
-
 <div className="wo-details">
-
-<div>Tot: -</div>
-<div>Pri: -</div>
-
+<div>Tot: {a.writtenOff}</div>
+<div>Settle: {a.settlement}</div>
 </div>
-
 </td>
 
 <td>-</td>
-
-<td>Active</td>
+<td>{a.status}</td>
 
 </tr>
+))}
 
 </tbody>
 
@@ -488,14 +478,18 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
       </thead>
 
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>23-Oct-2025</td>
-          <td>Bandhan Bank</td>
-          <td>Personal Loan</td>
-          <td>₹10,000</td>
-        </tr>
-      </tbody>
+
+{enquiries.map((e,i)=>(
+<tr key={i}>
+<td>{i+1}</td>
+<td>{e.date}</td>
+<td>{e.lender}</td>
+<td>{e.type}</td>
+<td>₹{e.amount}</td>
+</tr>
+))}
+
+</tbody>
 
     </table>
 
@@ -526,29 +520,21 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 
       <tbody>
 
-        <tr>
-          <td>1</td>
-          <td>CANFIN HOMES</td>
-          <td>196225000173</td>
-          <td>Housing Loan</td>
-          <td>26-09-2022</td>
-          <td>₹14,50,000</td>
-          <td>15-03-2025</td>
-          <td>Closed</td>
-        </tr>
+{accounts
+ .filter(a => a.status === "Closed")
+ .map((a,i)=>(
+<tr key={i}>
+<td>{i+1}</td>
+<td>{a.lender}</td>
+<td>{a.loanNo}</td>
+<td>{a.type}</td>
+<td>{a.sanctionedDate}</td>
+<td>₹{a.sanctionedAmount}</td>
+<td>{a.status}</td>
+</tr>
+))}
 
-        <tr>
-          <td>2</td>
-          <td>HDFC BANK</td>
-          <td>85808905</td>
-          <td>Construction Equipment Loan</td>
-          <td>04-10-2021</td>
-          <td>₹23,65,000</td>
-          <td>29-11-2022</td>
-          <td>Closed</td>
-        </tr>
-
-      </tbody>
+</tbody>
 
     </table>
 
@@ -573,11 +559,11 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 <div className="risk-group-card">
 <h4>Payment Behaviour</h4>
 
-<p>Max DPD: <strong>81 days</strong></p>
-<p>30+ DPD: <strong>4</strong></p>
-<p>60+ DPD: <strong>2</strong></p>
-<p>90+ DPD: <strong>0</strong></p>
-<p>Recent DPD (6M): <strong>Yes</strong></p>
+<p>Max DPD: <strong>{risk.payment?.maxDPD}</strong></p>
+<p>30+ DPD: <strong>{risk.payment?.dpd30}</strong></p>
+<p>60+ DPD: <strong>{risk.payment?.dpd60}</strong></p>
+<p>90+ DPD: <strong>{risk.payment?.dpd90}</strong></p>
+<p>Recent DPD (6M): <strong>{risk.payment?.recentDPD ? "Yes":"No"}</strong></p>
 
 </div>
 
@@ -587,9 +573,9 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 <div className="risk-group-card">
 <h4>Inquiry Behaviour</h4>
 
-<p>Enquiries (3M): <strong>2</strong></p>
-<p>Enquiries (6M): <strong>4</strong></p>
-<p>Enquiries (12M): <strong>7</strong></p>
+<p>Enquiries (3M): <strong>{risk.inquiry?.m3}</strong></p>
+<p>Enquiries (6M): <strong>{risk.inquiry?.m6}</strong></p>
+<p>Enquiries (12M): <strong>{risk.inquiry?.m12}</strong></p>
 
 </div>
 
@@ -599,10 +585,10 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 <div className="risk-group-card">
 <h4>Exposure Risk</h4>
 
-<p>Total Outstanding: <strong>₹41,20,000</strong></p>
-<p>Largest Loan: <strong>₹25,00,000</strong></p>
-<p>Unsecured Ratio: <strong>43%</strong></p>
-<p>EMI Burden: <strong>₹42,500</strong></p>
+<p>Total Outstanding: <strong>₹{risk.exposure?.totalOutstanding}</strong></p>
+<p>Largest Loan: <strong>₹{risk.exposure?.largestLoan}</strong></p>
+<p>Unsecured Ratio: <strong>{risk.exposure?.unsecuredRatio}%</strong></p>
+<p>EMI Burden: <strong>₹{risk.emi?.total}</strong></p>
 
 </div>
 
@@ -612,9 +598,9 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 <div className="risk-group-card">
 <h4>Credit Behaviour</h4>
 
-<p>Credit Age: <strong>3.2 yrs</strong></p>
-<p>Credit Utilization: <strong>82%</strong></p>
-<p>Credit Cards: <strong>1</strong></p>
+<p>Credit Age: <strong>{risk.credit?.creditAge} yrs</strong></p>
+<p>Credit Utilization: <strong>{risk.credit?.utilization}%</strong></p>
+<p>Credit Cards: <strong>{risk.credit?.creditCards}</strong></p>
 
 </div>
 
@@ -624,9 +610,9 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 <div className="risk-group-card risk-danger">
 <h4>Negative Signals</h4>
 
-<p>Written Off: <strong>1</strong></p>
-<p>Overdue Accounts: <strong>2</strong></p>
-<p>Settled Accounts: <strong>0</strong></p>
+<p>Written Off: <strong>{risk.negative?.writtenOff}</strong></p>
+<p>Overdue Accounts: <strong>{risk.negative?.overdue}</strong></p>
+<p>Settled Accounts: <strong>{risk.negative?.settled}</strong></p>
 
 </div>
 
@@ -636,9 +622,9 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 <div className="risk-group-card">
 <h4>Credit Trend</h4>
 
-<p>Outstanding 24M Ago: <strong>₹28,00,000</strong></p>
-<p>Current Outstanding: <strong>₹41,20,000</strong></p>
-<p>Debt Trend: <strong>Increasing</strong></p>
+<p>Outstanding 24M Ago: <strong>₹{risk.trend?.outstanding24M}</strong></p>
+<p>Current Outstanding: <strong>₹{risk.trend?.currentOutstanding}</strong></p>
+<p>Debt Trend: <strong>{risk.trend?.trend}</strong></p>
 
 </div>
 
@@ -648,8 +634,8 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 <div className="risk-group-card">
 <h4>Credit Concentration</h4>
 
-<p>Largest Exposure: <strong>₹25,00,000</strong></p>
-<p>Top 3 Loans Share: <strong>68%</strong></p>
+<p>Largest Exposure: <strong>₹{risk.concentration?.largestExposure}</strong></p>
+<p>Top 3 Loans Share: <strong>{risk.concentration?.top3Share}%</strong></p>
 
 </div>
 
@@ -659,10 +645,10 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 <div className="risk-group-card">
 <h4>Loan Purpose</h4>
 
-<p>Housing Loans: <strong>1</strong></p>
-<p>Auto Loans: <strong>1</strong></p>
-<p>Personal Loans: <strong>3</strong></p>
-<p>Business Loans: <strong>2</strong></p>
+<p>Housing Loans: <strong>{risk.purpose?.home}</strong></p>
+<p>Auto Loans: <strong>{risk.purpose?.auto}</strong></p>
+<p>Personal Loans: <strong>{risk.purpose?.personal}</strong></p>
+<p>Business Loans: <strong>{risk.purpose?.business}</strong></p>
 
 </div>
 
@@ -672,10 +658,10 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 <div className="risk-group-card">
 <h4>Bureau Status</h4>
 
-<p>Standard Accounts: <strong>5</strong></p>
-<p>Substandard Accounts: <strong>1</strong></p>
-<p>Doubtful Accounts: <strong>0</strong></p>
-<p>Loss Accounts: <strong>0</strong></p>
+<p>Standard Accounts: <strong>{risk.bureau?.standard}</strong></p>
+<p>Substandard Accounts: <strong>{risk.bureau?.sub}</strong></p>
+<p>Doubtful Accounts: <strong>{risk.bureau?.doubtful}</strong></p>
+<p>Loss Accounts: <strong>{risk.bureau?.loss}</strong></p>
 
 </div>
 
@@ -685,55 +671,55 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 <div className="risk-group-card">
 <h4>Card Behaviour</h4>
 
-<p>Card Limit: <strong>₹2,00,000</strong></p>
-<p>Card Utilization: <strong>78%</strong></p>
-<p>Late Payments: <strong>3</strong></p>
+<p>Card Limit: <strong>₹{risk.card?.limit}</strong></p>
+<p>Card Utilization: <strong>{risk.card?.utilization}%</strong></p>
+<p>Late Payments: <strong>{risk.card?.latePayments}</strong></p>
 
 </div>
 
   <div className="risk-group-card risk-danger">
 <h4>Risk Flags</h4>
 
-<p>Recent DPD (6M): <strong>Yes</strong></p>
-<p>Written Off Accounts: <strong>1</strong></p>
-<p>High Credit Utilization: <strong>82%</strong></p>
-<p>Too Many Enquiries: <strong>7</strong></p>
+<p>Recent DPD (6M): <strong>{risk.flags?.recentDPD ? "Yes":"No"}</strong></p>
+<p>Written Off Accounts: <strong>{risk.flags?.writtenOff}</strong></p>
+<p>High Credit Utilization: <strong>{risk.flags?.highUtilization}%</strong></p>
+<p>Too Many Enquiries: <strong>{risk.flags?.tooManyEnquiries}</strong></p>
 
 </div>
 
   <div className="risk-group-card">
 <h4>Recent Credit Activity</h4>
 
-<p>New Loans (6M): <strong>2</strong></p>
-<p>New Loans (12M): <strong>3</strong></p>
-<p>Recently Closed Loans: <strong>1</strong></p>
+<p>New Loans (6M): <strong>{risk.activity?.m6}</strong></p>
+<p>New Loans (12M): <strong>{risk.activity?.m12}</strong></p>
+<p>Recently Closed Loans: <strong>{risk.activity?.closed}</strong></p>
 
 </div>
 
   <div className="risk-group-card">
 <h4>Loan Pattern</h4>
 
-<p>Repeat Personal Loans: <strong>Yes</strong></p>
-<p>Loans in Last 24M: <strong>5</strong></p>
-<p>NBFC Exposure: <strong>High</strong></p>
+<p>Repeat Personal Loans: <strong>{risk.pattern?.repeatPersonal ? "Yes":"No"}</strong></p>
+<p>Loans in Last 24M: <strong>{risk.pattern?.last24M}</strong></p>
+<p>NBFC Exposure: <strong>{risk.pattern?.nbfcExposure}</strong></p>
 
 </div>
 
   <div className="risk-group-card">
 <h4>Unsecured Exposure</h4>
 
-<p>Total Outstanding: <strong>₹41,20,000</strong></p>
-<p>Unsecured Exposure: <strong>₹18,00,000</strong></p>
-<p>Unsecured Ratio: <strong>43%</strong></p>
+<p>Total Outstanding: <strong>₹{risk.unsecured?.total}</strong></p>
+<p>Unsecured Exposure: <strong>₹{risk.unsecured?.unsecured}</strong></p>
+<p>Unsecured Ratio: <strong>{risk.unsecured?.ratio}%</strong></p>
 
 </div>
 
   <div className="risk-group-card">
 <h4>EMI Burden</h4>
 
-<p>Total EMI: <strong>₹42,500</strong></p>
-<p>Largest EMI: <strong>₹18,000</strong></p>
-<p>Active EMIs: <strong>5</strong></p>
+<p>Total EMI: <strong>₹{risk.emi?.total}</strong></p>
+<p>Largest EMI: <strong>₹{risk.emi?.largest}</strong></p>
+<p>Active EMIs: <strong>{risk.emi?.count}</strong></p>
 
 </div>
 
