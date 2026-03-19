@@ -129,29 +129,27 @@ export default function CreditReportContent() {
               <td className="month-col">{m.label}</td>
 
               {dpdData.map((loan, j) => {
-                const value = loan.dpdHistory?.[m.key] || "000"
 
-                let className = ""
+  const value = loan.dpdHistory?.[m.key] || "000"
 
-if (value === "000" || value === "STD") {
-  className = "dpd-green"
-}
-else if (parseInt(value) >= 30 && parseInt(value) < 90) {
-  className = "dpd-yellow"
-}
-else if (parseInt(value) >= 90 || value === "SUB") {
-  className = "dpd-red"
-}
+  let className = ""
 
-                return (
-                  <td
-                    key={j}
-                    className={isDelay ? "dpd-red" : ""}
-                  >
-                    {value}
-                  </td>
-                )
-              })}
+  if (value === "000" || value === "STD") {
+    className = "dpd-green"
+  }
+  else if (parseInt(value) >= 30 && parseInt(value) < 90) {
+    className = "dpd-yellow"
+  }
+  else if (parseInt(value) >= 90 || value === "SUB") {
+    className = "dpd-red"
+  }
+
+  return (
+    <td key={j} className={className}>
+      {value}
+    </td>
+  )
+})}
 
             </tr>
           ))}
