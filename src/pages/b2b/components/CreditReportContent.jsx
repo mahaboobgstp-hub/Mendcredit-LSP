@@ -131,11 +131,17 @@ export default function CreditReportContent() {
               {dpdData.map((loan, j) => {
                 const value = loan.dpdHistory?.[m.key] || "000"
 
-                const isDelay =
-                  value !== "000" &&
-                  value !== "STD" &&
-                  value !== "XXX" &&
-                  value !== "SUB"
+                let className = ""
+
+if (value === "000" || value === "STD") {
+  className = "dpd-green"
+}
+else if (parseInt(value) >= 30 && parseInt(value) < 90) {
+  className = "dpd-yellow"
+}
+else if (parseInt(value) >= 90 || value === "SUB") {
+  className = "dpd-red"
+}
 
                 return (
                   <td
