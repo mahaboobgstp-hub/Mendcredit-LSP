@@ -20,6 +20,7 @@ export default function CreditReportContent() {
   const [creditAge,setCreditAge] = useState({})
   const [creditMix,setCreditMix] = useState({})
   const [risk, setRisk] = useState({})
+  const [demography, setDemography] = useState({})
 
  useEffect(()=>{
 
@@ -43,6 +44,8 @@ export default function CreditReportContent() {
     setNegativeLoans(data.negativeLoans || [])
     setEnquiries(data.enquiries || [])
     setDpdData(data.dpd || [])
+    setDemography(data.demography || {})
+    setClosedLoans(data.closedLoans || {})
 
     // RISK
     setRisk(data.riskMetrics || {})
@@ -323,6 +326,13 @@ export default function CreditReportContent() {
     Closed Loans
   </button>
 
+<button
+  className={activeTab === "demography" ? "tab active" : "tab"}
+  onClick={() => setActiveTab("demography")}
+>
+  Demography
+</button>
+  
 </div>
       {/* Active Loans */}
 
@@ -541,6 +551,76 @@ export default function CreditReportContent() {
   </div>
  
 )}
+
+{activeTab === "demography" && (
+  <div>
+
+    <h3>Demographic Details</h3>
+
+    <table className="b2b-table">
+
+      <tbody>
+
+        <tr>
+          <td>Name</td>
+          <td>{demography.name}</td>
+        </tr>
+
+        <tr>
+          <td>Date of Birth</td>
+          <td>{demography.dob}</td>
+        </tr>
+
+        <tr>
+          <td>Gender</td>
+          <td>{demography.gender}</td>
+        </tr>
+
+        <tr>
+          <td>PAN</td>
+          <td>{demography.pan}</td>
+        </tr>
+
+        <tr>
+          <td>CKYC</td>
+          <td>{demography.ckyc || "Not Available"}</td>
+        </tr>
+
+        <tr>
+          <td>Mobile Numbers</td>
+          <td>
+            {demography.mobileNumbers?.map((m,i)=>(
+              <div key={i}>{m}</div>
+            ))}
+          </td>
+        </tr>
+
+        <tr>
+          <td>Email IDs</td>
+          <td>
+            {demography.emails?.length
+              ? demography.emails.map((e,i)=><div key={i}>{e}</div>)
+              : "Not Available"}
+          </td>
+        </tr>
+
+        <tr>
+          <td>Addresses</td>
+          <td>
+            {demography.addresses?.map((a,i)=>(
+              <div key={i}>
+                {a.line1}, {a.line2}, {a.pincode}
+              </div>
+            ))}
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+)}  
       
 {/* RISK METRICS SECTION */}
 
