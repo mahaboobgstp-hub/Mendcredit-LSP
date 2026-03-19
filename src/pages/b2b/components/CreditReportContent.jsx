@@ -382,7 +382,17 @@ export default function CreditReportContent() {
 
       <tbody>
 
-{accounts
+{accounts.filter(a => a.status === "Active").length === 0 ? (
+
+<tr>
+  <td colSpan="10" style={{ textAlign: "center", padding: "20px" }}>
+    No Active Loans
+  </td>
+</tr>
+
+) : (
+
+accounts
   .filter(a => a.status === "Active")
   .map((a, i) => (
 
@@ -399,7 +409,9 @@ export default function CreditReportContent() {
 <td>{a.status}</td>
 </tr>
 
-))}
+)))
+
+}
 
 </tbody>
 
@@ -436,11 +448,20 @@ export default function CreditReportContent() {
 
       <tbody>
 
-{negativeLoans.map((a,i)=>(
+{negativeLoans.length === 0 ? (
+
+<tr>
+  <td colSpan="10" style={{ textAlign: "center", padding: "20px" }}>
+    No Negative Loans
+  </td>
+</tr>
+
+) : (
+
+negativeLoans.map((a,i)=>(
 <tr key={i}>
 
 <td>{i+1}</td>
-
 <td>{a.lender}</td>
 
 <td>
@@ -467,7 +488,9 @@ export default function CreditReportContent() {
 <td>{a.status}</td>
 
 </tr>
-))}
+))
+
+)}
 
 </tbody>
 
@@ -509,9 +532,19 @@ export default function CreditReportContent() {
         </tr>
       </thead>
 
-      <tbody>
+     <tbody>
 
-{enquiries.map((e,i)=>(
+{enquiries.length === 0 ? (
+
+<tr>
+  <td colSpan="5" style={{ textAlign: "center", padding: "20px" }}>
+    No Enquiries Found
+  </td>
+</tr>
+
+) : (
+
+enquiries.map((e,i)=>(
 <tr key={i}>
 <td>{i+1}</td>
 <td>{e.date}</td>
@@ -519,7 +552,9 @@ export default function CreditReportContent() {
 <td>{e.type}</td>
 <td>₹{e.amount}</td>
 </tr>
-))}
+))
+
+)}
 
 </tbody>
 
@@ -552,7 +587,17 @@ export default function CreditReportContent() {
 
       <tbody>
 
-{accounts
+{accounts.filter(a => a.status === "Closed").length === 0 ? (
+
+<tr>
+  <td colSpan="8" style={{ textAlign: "center", padding: "20px" }}>
+    No Closed Loans
+  </td>
+</tr>
+
+) : (
+
+accounts
  .filter(a => a.status === "Closed")
  .map((a,i)=>(
 <tr key={i}>
@@ -564,7 +609,9 @@ export default function CreditReportContent() {
 <td>₹{a.sanctionedAmount}</td>
 <td>{a.status}</td>
 </tr>
-))}
+))
+
+)}
 
 </tbody>
 
