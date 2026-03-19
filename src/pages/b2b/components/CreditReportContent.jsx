@@ -21,6 +21,18 @@ export default function CreditReportContent() {
   const [creditMix,setCreditMix] = useState({})
   const [risk, setRisk] = useState({})
   const [demography, setDemography] = useState({})
+  const [profile, setProfile] = useState({})
+  const [score, setScore] = useState(null)
+  const [reportDate, setReportDate] = useState("")
+
+  const formatDate = (d) => {
+  if (!d) return "-"
+  return new Date(d).toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric"
+  })
+}
 
  useEffect(()=>{
 
@@ -31,6 +43,11 @@ export default function CreditReportContent() {
   .then(data => {
 
     console.log("FULL REPORT:", data)
+
+    // HEADER
+    setProfile(data.profile || {})
+    setScore(data.score || 0)
+    setReportDate(data.reportDate || "")
 
     // TOP CARDS
     setSummary(data.summary || {})
@@ -55,7 +72,7 @@ export default function CreditReportContent() {
 
 },[])
 
-  const borrower = {
+ /* const borrower = {
     name: "Rahul Sharma",
     pan: "ABCDE1234F",
     mobile: "98XXXX321",
@@ -72,7 +89,8 @@ export default function CreditReportContent() {
     activeAccounts: 5,
     closed: 2
   };
-
+*/
+  
   const getLast25Months = () => {
   const months = []
   const today = new Date()
@@ -175,10 +193,10 @@ export default function CreditReportContent() {
   {/* LEFT SIDE — Borrower Info */}
   <div className="credit-header-left">
 
-    <p><strong>Name:</strong> {borrower.name}</p>
-    <p><strong>PAN:</strong> {borrower.pan}</p>
-    <p><strong>Mobile:</strong> {borrower.mobile}</p>
-    <p><strong>Report Date:</strong> {borrower.reportDate}</p>
+    <p><strong>Name:</strong> {profile.name}</p>
+    <p><strong>PAN:</strong> {profile.pan}</p>
+    <p><strong>Mobile:</strong> {profile.mobile}</p>
+    <p><strong>Report Date:</strong> {formatDate(reportDate)}</p>
 
   </div>
 
@@ -189,13 +207,13 @@ export default function CreditReportContent() {
     <div className="score-gauge">
 
       <div className="score-circle">
-        {borrower.score}
-      </div>
+  {score}
+</div>
 
-      <div className="score-label">
-        Moderate Risk
-      </div>
-
+<div className="score-label">
+  {score >= 750 ? "Low Risk" :
+   score >= 650 ? "Moderate Risk" : "High Risk"}
+</div>
     </div>
 
   </div>
