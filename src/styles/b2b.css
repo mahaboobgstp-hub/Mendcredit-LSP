@@ -1892,3 +1892,10 @@ border-radius:4px;
   background: #cbd5f5;
   border-radius: 10px;
 }
+
+.no-data-row {
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+  font-weight: 500;
+}
