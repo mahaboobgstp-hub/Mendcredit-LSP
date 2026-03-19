@@ -269,8 +269,8 @@ export default function CreditReportContent() {
 
  <h4>Credit Utilization</h4>
 
-<p>Total OD Limit: ₹{utilization.totalLimit}</p>
-<p>Used Limit: ₹{utilization.usedLimit}</p>
+<p>Total OD Limit: ₹{utilization.totalODLimit}</p>
+<p>Used Limit: ₹{utilization.usedODLimit}</p>
 <p>Utilization: {utilization.utilization}%</p>
 
 <p>Card Limit: ₹{utilization.cardLimit}</p>
