@@ -10,7 +10,7 @@ export default function CreditReportContent() {
   const { id } = useParams();
   const API_BASE = "https://credit-backend-7gsz.onrender.com/api/credit";
   const [activeTab, setActiveTab] = useState("active");
-  
+  const [dpdData, setDpdData] = useState([])
   const [summary,setSummary] = useState({})
   const [exposure,setExposure] = useState({})
   const [accounts,setAccounts] = useState([])
@@ -52,6 +52,10 @@ export default function CreditReportContent() {
  .then(res => res.json())
  .then(setCreditAge)
 
+ fetch(`${API_BASE}/dpd?customerId=CUST001`)
+  .then(res => res.json())
+  .then(data => setDpdData(data))  
+
 fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
  .then(res => res.json())
  .then(setCreditMix)  
@@ -75,6 +79,91 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
     activeAccounts: 5,
     closed: 2
   };
+
+  const getLast25Months = () => {
+  const months = []
+  const today = new Date()
+
+  for (let i = 0; i < 25; i++) {
+    const d = new Date(today.getFullYear(), today.getMonth() - i, 1)
+
+    const label = d.toLocaleString("default", {
+      month: "short",
+      year: "numeric"
+    })
+
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`
+
+    months.push({ label, key })
+  }
+
+  return months
+}
+
+  const renderDPDGrid = () => {
+  if (!dpdData || dpdData.length === 0) return "No DPD data"
+
+  const months = getLast25Months()
+
+  return (
+    <div className="dpd-table-wrapper">
+
+      <table className="dpd-table">
+
+        {/* HEADER */}
+        <thead>
+          <tr>
+            <th>Month</th>
+
+            {dpdData.map((loan, idx) => (
+              <th key={idx}>
+                <div>{loan.bank}</div>
+                <div className="loan-no">
+                  ****{loan.loanNumber.slice(-4)}
+                </div>
+              </th>
+            ))}
+
+          </tr>
+        </thead>
+
+        {/* BODY */}
+        <tbody>
+
+          {months.map((m, i) => (
+            <tr key={i}>
+
+              <td className="month-col">{m.label}</td>
+
+              {dpdData.map((loan, j) => {
+                const value = loan.dpdHistory?.[m.key] || "000"
+
+                const isDelay =
+                  value !== "000" &&
+                  value !== "STD" &&
+                  value !== "XXX" &&
+                  value !== "SUB"
+
+                return (
+                  <td
+                    key={j}
+                    className={isDelay ? "dpd-red" : ""}
+                  >
+                    {value}
+                  </td>
+                )
+              })}
+
+            </tr>
+          ))}
+
+        </tbody>
+
+      </table>
+
+    </div>
+  )
+}
 
   return (
     <div className="b2b-module-container">
@@ -372,8 +461,8 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
     <h3>Payment Delays (Last 24 Months)</h3>
 
     <div className="dpd-box">
-      DPD grid will appear here
-    </div>
+  {renderDPDGrid()}
+</div>
 
   </div>
 )}
