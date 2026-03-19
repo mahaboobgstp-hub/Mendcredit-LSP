@@ -254,11 +254,13 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
 
  <h4>Credit Utilization</h4>
 
- <p>Total Limit: ₹{utilization.totalLimit?.toLocaleString()}</p>
+<p>Total OD Limit: ₹{utilization.totalLimit}</p>
+<p>Used Limit: ₹{utilization.usedLimit}</p>
+<p>Utilization: {utilization.utilization}%</p>
 
- <p>Used Limit: ₹{utilization.usedLimit?.toLocaleString()}</p>
-
- <p>Utilization: {utilization.utilization}%</p>
+<p>Card Limit: ₹{utilization.cardLimit}</p>
+<p>Card Used: ₹{utilization.cardUsed}</p>
+<p>Card Utilization: {utilization.cardUtilization}%</p>
 
 </div>
 
