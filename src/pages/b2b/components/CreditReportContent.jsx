@@ -231,8 +231,7 @@ fetch(`${API_BASE}/credit-mix?customerId=CUST001`)
     <p>Total Accounts: {summary.totalAccounts}</p>
     <p>Active Loans: {summary.activeLoans}</p>
     <p>Closed Loans: {summary.closedLoans}</p>
-    <p>Secured Loans: {summary.securedLoans}</p>
-    <p>Unsecured Loans: {summary.unsecuredLoans}</p>
+    <p>Negative Loans: {summary.negativeLoans}</p>
 
   </div>
 
