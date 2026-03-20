@@ -523,7 +523,7 @@ negativeLoans.map((a,i)=>(
 {activeTab === "enquiries" && (
   <div>
 
-    <h3>Enquiries in Last 12 Months</h3>
+    <h3>Enquiries in Last 24 Months</h3>
 
     <table className="b2b-table">
 
