@@ -59,7 +59,7 @@ export default function CreditReportContent() {
     // TABLES
     setAccounts(data.accounts || [])
     setNegativeLoans(data.negativeLoans || [])
-    setEnquiries(data.inquiry || [])
+    setEnquiries(data.enquiries || [])
     setDpdData(data.dpd || [])
     setDemography(data.demography || {})
    
