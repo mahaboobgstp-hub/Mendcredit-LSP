@@ -612,6 +612,7 @@ accounts
 <td>{a.type}</td>
 <td>{a.sanctionedDate}</td>
 <td>₹{a.sanctionedAmount}</td>
+<td>{a.closingDate}</td>  
 <td>{a.status}</td>
 </tr>
 ))
