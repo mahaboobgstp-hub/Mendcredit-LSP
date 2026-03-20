@@ -488,7 +488,6 @@ negativeLoans.map((a,i)=>(
   ₹{a.settlement}
 </td>
 
-<td>-</td>
 <td>{a.status}</td>
 
 </tr>
