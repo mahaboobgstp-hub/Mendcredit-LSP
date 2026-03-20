@@ -284,11 +284,11 @@ export default function CreditReportContent() {
 
  <h4>Credit Age</h4>
 
- <p>Oldest Credit Line: {creditAge.oldestCreditLine} yrs</p>
+ <p>Oldest Credit Line: {creditAge.oldestCreditLine} </p>
 
- <p>Average Credit Age: {creditAge.averageCreditAge} yrs</p>
+ <p>Average Credit Age: {creditAge.averageCreditAge} </p>
 
- <p>Newest Loan: {creditAge.newestLoan} months</p>
+ <p>Newest Loan: {creditAge.newestLoan} </p>
 
 </div>
 
