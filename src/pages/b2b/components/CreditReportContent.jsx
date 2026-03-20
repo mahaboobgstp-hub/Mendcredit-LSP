@@ -148,7 +148,9 @@ export default function CreditReportContent() {
 
               {dpdData.map((loan, j) => {
 
-  const value = loan.dpdHistory?.[m.key] || "000"
+  //const value = loan.dpdHistory?.[m.key] || "000"
+  let value = loan.dpdHistory?.[m.key] || "000"
+  value = String(value).padStart(3, "0")            
 
   let className = ""
 
