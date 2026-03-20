@@ -385,7 +385,7 @@ export default function CreditReportContent() {
 {accounts.filter(a => a.status === "Active").length === 0 ? (
 
 <tr>
-  <td colSpan="10" className="no-data-row">
+  <td colSpan="10" className="no-data-cell">
   No Active Loans
 </td>
 </tr>
