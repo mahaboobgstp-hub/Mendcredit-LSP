@@ -1899,3 +1899,9 @@ border-radius:4px;
   color: #64748b;
   font-weight: 500;
 }
+.no-data-cell {
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+  font-weight: 500;
+}
