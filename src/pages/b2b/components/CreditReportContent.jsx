@@ -478,10 +478,14 @@ negativeLoans.map((a,i)=>(
 <td>-</td>
 
 <td>
-<div className="wo-details">
-<div>Tot: {a.writtenOff}</div>
-<div>Settle: {a.settlement}</div>
-</div>
+  <div className="wo-details">
+    <div>Tot: ₹{a.writtenOffTotal}</div>
+    <div>Pri: ₹{a.writtenOffPrincipal}</div>
+  </div>
+</td>
+
+  <td>
+  ₹{a.settlement}
 </td>
 
 <td>-</td>
